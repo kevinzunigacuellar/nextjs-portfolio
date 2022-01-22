@@ -1,4 +1,8 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 echo '💅  Styling your code before committing'
-npm lint
+npm run lint
+npx prettier --check .
+
+echo '🚀  Committing changes'
+
