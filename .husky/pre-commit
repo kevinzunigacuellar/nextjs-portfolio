@@ -2,6 +2,7 @@
 . "$(dirname "$0")/_/husky.sh"
 echo '💅  Styling your code before committing'
 npm run lint
+npx prettier --write '**/*.{ts,tsx}'
 npx prettier --check .
 
 echo '🚀  Committing changes'
