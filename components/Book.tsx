@@ -9,7 +9,7 @@ interface BookProps {
 
 export default function Book({ img, title, author, year, comment }: BookProps) {
   return (
-    <article className="font-body max-w-md border sm:w-full sm:max-w-4xl bg-white/60 rounded-xl overflow-hidden dark:bg-gray-800/90 dark:border-gray-700 transition-colors">
+    <article className="font-body max-w-md border sm:w-full sm:max-w-4xl bg-white rounded-xl overflow-hidden dark:bg-gray-800/90 dark:border-gray-700 transition-colors">
       <div className="sm:flex">
         <div className="max-w-md p-4 pb-0 sm:pb-4 sm:pr-1">
           <div className="relative aspect-[3/4] sm:w-48">
@@ -28,7 +28,10 @@ export default function Book({ img, title, author, year, comment }: BookProps) {
             {title}
           </h2>
           <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
-            <span>{author}</span> <span>&middot;</span> <span>{year}</span>
+            <span className="text-indigo-600/90 dark:text-cyan-500 font-medium">
+              {author}
+            </span>{" "}
+            <span>&middot;</span> <span>{year}</span>
           </p>
           <p className="text-gray-500 py-2 dark:text-gray-400 leading-relaxed">{`"${comment}"`}</p>
         </div>
