@@ -1,40 +1,36 @@
 import Image from "next/image";
-
 interface BookProps {
   title: string;
-  img: string;
+  img: string | StaticImageData;
   author: string;
-  year: string;
+  year: number;
   comment: string;
 }
 
 export default function Book({ img, title, author, year, comment }: BookProps) {
   return (
-    <article className="max-w-md sm:w-full sm:max-w-none bg-white rounded-lg shadow overflow-hidden dark:bg-gray-900 dark:border-gray-500 transition-colors">
+    <article className="font-body max-w-md border sm:w-full sm:max-w-4xl bg-white/60 rounded-xl overflow-hidden dark:bg-gray-800/90 dark:border-gray-700 transition-colors">
       <div className="sm:flex">
-        <div className="max-w-md">
-          <div className="relative aspect-[3/4] sm:w-60">
+        <div className="max-w-md p-4 pb-0 sm:pb-4 sm:pr-1">
+          <div className="relative aspect-[3/4] sm:w-48">
             <Image
-              className="absolute w-full h-full"
+              className="absolute w-full h-full rounded-xl"
               src={img}
               alt={title}
               layout="fill"
               objectFit="fill"
+              placeholder="blur"
             />
           </div>
         </div>
-        <div className="py-5 px-6">
-          <h2 className="font-semibold py-1 text-lg dark:text-gray-200 text-gray-900">
+        <div className="py-5 px-6 w-full">
+          <h2 className="font-semibold pb-1.5 text-xl dark:text-white text-gray-900">
             {title}
           </h2>
-          <p className="mb-1.5">
-            <span className="text-gray-900 dark:text-gray-300">{author}</span>{" "}
-            <span className="text-gray-500 dark:text-gray-400">&middot;</span>{" "}
-            <span className="text-gray-500 dark:text-gray-400">{year}</span>
+          <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
+            <span>{author}</span> <span>&middot;</span> <span>{year}</span>
           </p>
-          <p className="text-gray-500 pt-2 leading-relaxed dark:text-gray-400">
-            {comment}
-          </p>
+          <p className="text-gray-500 py-2 dark:text-gray-400 leading-relaxed">{`"${comment}"`}</p>
         </div>
       </div>
     </article>
