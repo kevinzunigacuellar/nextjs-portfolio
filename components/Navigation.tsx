@@ -45,7 +45,7 @@ const Navigation = () => {
       animate={isOpen ? "open" : "closed"}
     >
       <div className="flex justify-between items-center">
-        <button onClick={() => toggleOpen()} className="block p-0.5">
+        <button onClick={() => toggleOpen()} className="block p-0.5 sm:hidden">
           <svg
             width="20"
             height="20"
@@ -74,7 +74,22 @@ const Navigation = () => {
             />
           </svg>
         </button>
-        <p>kevin</p>
+        <nav>
+          <ul className="hidden sm:flex">
+            {navItems.map((navItem) => (
+              <li key={navItem.name}>
+                <Link href={navItem.href}>
+                  <a
+                    className="block py-1 px-3 bg-gray-200 rounded-lg hover:bg-gray-300"
+                    onClick={() => toggleOpen()}
+                  >
+                    {navItem.name}
+                  </a>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
       <motion.ul
         className="pt-3 pb-1 space-y-1 font-medium"
