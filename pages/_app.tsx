@@ -1,13 +1,16 @@
 import "styles/globals.css";
+import { motion } from "framer-motion";
+import { ThemeProvider } from "next-themes";
+import Navbar from "components/Navbar";
 import type { AppProps } from "next/app";
 
-import Navbar from "components/Navbar";
-import { motion } from "framer-motion";
-
 function MyApp({ Component, pageProps, router }: AppProps) {
-  console.log(router.route);
   return (
-    <>
+    <ThemeProvider
+      attribute="class"
+      disableTransitionOnChange
+      defaultTheme="system"
+    >
       <Navbar />
       <main className="bg-white dark:bg-gray-900/95 min-h-screen w-screen">
         <motion.div
@@ -19,7 +22,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
           <Component {...pageProps} />
         </motion.div>
       </main>
-    </>
+    </ThemeProvider>
   );
 }
 
