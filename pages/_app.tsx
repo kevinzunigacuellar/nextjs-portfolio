@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
       <Navbar />
       <main className="bg-white dark:bg-gray-900/95 min-h-screen w-screen">
         <motion.div
-          className="max-w-4xl mx-auto px-6 pb-24 py-20"
+          className="max-w-4xl mx-auto px-6 pb-36 py-20"
           key={router.route}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
