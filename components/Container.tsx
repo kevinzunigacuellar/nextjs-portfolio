@@ -52,7 +52,7 @@ const Container = ({
         <meta name="twitter:image" content={image} />
         {date && <meta property="article:published_time" content={date} />}
       </Head>
-      <main className="bg-white dark:bg-gray-900 min-h-screen w-screen transition-colors">
+      <main className="bg-white dark:bg-gray-900/95 min-h-screen w-screen transition-colors">
         <div className="max-w-4xl mx-auto px-6 pb-24 py-20">
           {pageTitle && (
             <h1 className="pb-8 md:pb-10 font-bold tracking-tight text-gray-900 text-3xl sm:text-4xl md:text-5xl dark:text-white">

@@ -20,7 +20,7 @@ const DarkmodeButton = () => {
   return (
     <button
       onClick={handleToggleDarkTheme}
-      className="group relative snap-end flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 rounded-2xl bg-gray-200 dark:bg-gray-700 transition-all hover:scale-110 active:scale-95 border-2 border-opacity-0 dark:border-opacity-0 dark:hover:border-opacity-100 hover:border-opacity-100 border-blue-600 dark:border-blue-700 hover:shadow-blue-200 dark:hover:shadow-blue-800 hover:shadow-md"
+      className="group relative snap-end flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 rounded-2xl bg-gray-200 dark:bg-gray-800 transition-all hover:scale-110 active:scale-95 border-2 border-opacity-0 dark:border-opacity-0 dark:hover:border-opacity-100 hover:border-opacity-100 border-blue-600 dark:border-blue-700 hover:shadow-blue-200 dark:hover:shadow-blue-800 hover:shadow-md"
     >
       <svg
         className="h-8 w-8 fill-gray-400 dark:fill-gray-500 group-hover:scale-125 dark:group-hover:fill-gray-400 group-hover:fill-gray-500 duration-300"
