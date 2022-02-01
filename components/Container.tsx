@@ -1,11 +1,11 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-
+import { ReactNode } from "react";
 interface ContainerProps {
   title?: string;
   description?: string;
   image?: string;
-  children: React.ReactNode;
+  children: ReactNode;
   date?: string;
   pageTitle?: string;
 }
@@ -13,8 +13,8 @@ interface ContainerProps {
 const defaultMeta = {
   title: "Kevin Zuniga Cuellar",
   description:
-    "Front-end developer, JavaScript enthusiast, and a passionate learner.",
-  image: "https://leerob.io/static/images/me.jpg",
+    "Front-end developer, TypeScript enthusiast, and a passionate learner.",
+  image: "https://kevinzunigacuellar.com/static/images/me.jpg",
 };
 
 const Container = ({
@@ -52,16 +52,12 @@ const Container = ({
         <meta name="twitter:image" content={image} />
         {date && <meta property="article:published_time" content={date} />}
       </Head>
-      <main className="bg-white dark:bg-gray-900/95 min-h-screen w-screen transition-colors">
-        <div className="max-w-4xl mx-auto px-6 pb-24 py-20">
-          {pageTitle && (
-            <h1 className="pb-8 md:pb-10 font-bold tracking-tight text-gray-900 text-3xl sm:text-4xl md:text-5xl dark:text-white">
-              {pageTitle}
-            </h1>
-          )}
-          {children}
-        </div>
-      </main>
+      {pageTitle && (
+        <h1 className="pb-8 md:pb-10 font-bold tracking-tight text-gray-900 text-3xl sm:text-4xl md:text-5xl dark:text-white">
+          {pageTitle}
+        </h1>
+      )}
+      {children}
     </>
   );
 };
