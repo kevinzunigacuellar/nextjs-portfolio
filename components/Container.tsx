@@ -54,7 +54,7 @@ const Container = ({
         {date && <meta property="article:published_time" content={date} />}
       </Head>
       {pageTitle && (
-        <h1 className="pb-8 md:pb-10 font-bold tracking-tight text-gray-900 text-3xl sm:text-4xl md:text-5xl dark:text-white">
+        <h1 className="pb-8 md:pb-10 font-bold tracking-tight text-gray-900 text-4xl md:text-5xl dark:text-white">
           {pageTitle}
         </h1>
       )}
