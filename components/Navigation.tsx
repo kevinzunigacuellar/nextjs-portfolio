@@ -44,13 +44,13 @@ const Navigation = () => {
       className="bg-gray-200 p-3"
       animate={isOpen ? "open" : "closed"}
     >
-      <div className="flex justify-between items-center">
+      <div className="flex items-center justify-between">
         <button onClick={() => toggleOpen()} className="block p-0.5 sm:hidden">
           <svg
             width="20"
             height="20"
             viewBox="0 0 24 24"
-            className="stroke-2 mt-1 ml-0.5"
+            className="mt-1 ml-0.5 stroke-2"
           >
             <Path
               variants={{
@@ -80,7 +80,7 @@ const Navigation = () => {
               <li key={navItem.name}>
                 <Link href={navItem.href}>
                   <a
-                    className="block py-1 px-3 bg-gray-200 rounded-lg hover:bg-gray-300"
+                    className="block rounded-lg bg-gray-200 py-1 px-3 hover:bg-gray-300"
                     onClick={() => toggleOpen()}
                   >
                     {navItem.name}
@@ -92,14 +92,14 @@ const Navigation = () => {
         </nav>
       </div>
       <motion.ul
-        className="pt-3 pb-1 space-y-1 font-medium"
+        className="space-y-1 pt-3 pb-1 font-medium"
         variants={ulVariants}
       >
         {navItems.map((navItem) => (
           <motion.li key={navItem.name} variants={liVariants}>
             <Link href={navItem.href}>
               <a
-                className="block py-1 px-3 bg-gray-200 rounded-lg hover:bg-gray-300"
+                className="block rounded-lg bg-gray-200 py-1 px-3 hover:bg-gray-300"
                 onClick={() => toggleOpen()}
               >
                 {navItem.name}

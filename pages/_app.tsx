@@ -12,9 +12,9 @@ function MyApp({ Component, pageProps, router }: AppProps) {
       defaultTheme="system"
     >
       <Navbar />
-      <main className="bg-white dark:bg-gray-900/95 min-h-screen w-screen">
+      <main className="min-h-screen w-screen bg-white dark:bg-gray-900/95">
         <motion.div
-          className="max-w-4xl mx-auto px-6 pb-36 py-20"
+          className="mx-auto max-w-4xl px-6 py-20 pb-36"
           key={router.route}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

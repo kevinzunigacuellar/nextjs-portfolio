@@ -7,7 +7,7 @@ import type { NextPage } from "next";
 const Bookshelf: NextPage = () => {
   return (
     <Container pageTitle="Bookshelf" title="Bookshelf - Kevin Zuniga Cuellar">
-      <ul className="grid grid-cols-1 justify-items-center md:justify-items-start gap-10">
+      <ul className="grid grid-cols-1 justify-items-center gap-10 md:justify-items-start">
         <Book
           title="Eloquent JavaScript"
           author="Marijn Haverbeke"

@@ -13,11 +13,11 @@ const DarkmodeButton = () => {
   return (
     <button
       onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-      className="group relative snap-end flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 rounded-2xl bg-gray-200 dark:bg-gray-800 transition-all hover:scale-110 active:scale-95 border-2 border-opacity-0 dark:border-opacity-0 dark:hover:border-opacity-100 hover:border-opacity-100 border-blue-600 dark:border-blue-700 hover:shadow-blue-200 dark:hover:shadow-blue-800 hover:shadow-md"
+      className="group relative flex h-14 w-14 flex-shrink-0 snap-end items-center justify-center rounded-2xl border-2 border-blue-600 border-opacity-0 bg-gray-200 transition-all hover:scale-110 hover:border-opacity-100 hover:shadow-md hover:shadow-blue-200 active:scale-95 dark:border-blue-700 dark:border-opacity-0 dark:bg-gray-800 dark:hover:border-opacity-100 dark:hover:shadow-blue-800 sm:h-16 sm:w-16"
     >
       {mounted && (
         <svg
-          className="h-8 w-8 fill-gray-400 dark:fill-gray-500 group-hover:scale-125 dark:group-hover:fill-gray-400 group-hover:fill-gray-500 duration-300"
+          className="h-8 w-8 fill-gray-400 duration-300 group-hover:scale-125 group-hover:fill-gray-500 dark:fill-gray-500 dark:group-hover:fill-gray-400"
           viewBox="0 0 20 20"
         >
           {resolvedTheme === "dark" ? (
@@ -44,12 +44,12 @@ const DarkmodeButton = () => {
 
 const Navbar = () => {
   return (
-    <footer className="w-3/4 sm:w-auto fixed z-10 rounded-3xl -translate-x-1/2 bottom-6 left-1/2 backdrop-blur-sm px-2.5 py-1.5 sm:p-2.5 bg-white/50 dark:bg-gray-900/50 border border-gray-300 shadow dark:shadow-gray-900 dark:border-gray-700 transition-colors">
-      <nav className="flex items-center justify-start gap-2.5 overflow-x-auto sm:overflow-x-visible snap-x">
+    <footer className="fixed bottom-6 left-1/2 z-10 w-3/4 -translate-x-1/2 rounded-3xl border border-gray-300 bg-white/50 px-2.5 py-1.5 shadow backdrop-blur-sm transition-colors dark:border-gray-700 dark:bg-gray-900/50 dark:shadow-gray-900 sm:w-auto sm:p-2.5">
+      <nav className="flex snap-x items-center justify-start gap-2.5 overflow-x-auto sm:overflow-x-visible">
         <Link href="/">
-          <a className="group relative snap-end flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 rounded-2xl bg-gray-200 dark:bg-gray-800 transition-all hover:scale-110 active:scale-95 border-2 border-opacity-0 dark:border-opacity-0 dark:hover:border-opacity-100 hover:border-opacity-100 border-blue-600 dark:border-blue-700 hover:shadow-blue-200 dark:hover:shadow-blue-800 hover:shadow-md">
+          <a className="group relative flex h-14 w-14 flex-shrink-0 snap-end items-center justify-center rounded-2xl border-2 border-blue-600 border-opacity-0 bg-gray-200 transition-all hover:scale-110 hover:border-opacity-100 hover:shadow-md hover:shadow-blue-200 active:scale-95 dark:border-blue-700 dark:border-opacity-0 dark:bg-gray-800 dark:hover:border-opacity-100 dark:hover:shadow-blue-800 sm:h-16 sm:w-16">
             <svg
-              className="h-8 w-8 fill-gray-400 dark:fill-gray-500 group-hover:scale-125 dark:group-hover:fill-gray-400 group-hover:fill-gray-500 duration-300"
+              className="h-8 w-8 fill-gray-400 duration-300 group-hover:scale-125 group-hover:fill-gray-500 dark:fill-gray-500 dark:group-hover:fill-gray-400"
               viewBox="0 0 20 20"
             >
               <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
@@ -58,9 +58,9 @@ const Navbar = () => {
           </a>
         </Link>
         <Link href="/about">
-          <a className="group relative snap-end flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 rounded-2xl bg-gray-200 dark:bg-gray-800 transition-all hover:scale-110 active:scale-95 border-2 border-opacity-0 dark:border-opacity-0 dark:hover:border-opacity-100 hover:border-opacity-100 border-blue-600 dark:border-blue-700 hover:shadow-blue-200 dark:hover:shadow-blue-800 hover:shadow-md">
+          <a className="group relative flex h-14 w-14 flex-shrink-0 snap-end items-center justify-center rounded-2xl border-2 border-blue-600 border-opacity-0 bg-gray-200 transition-all hover:scale-110 hover:border-opacity-100 hover:shadow-md hover:shadow-blue-200 active:scale-95 dark:border-blue-700 dark:border-opacity-0 dark:bg-gray-800 dark:hover:border-opacity-100 dark:hover:shadow-blue-800 sm:h-16 sm:w-16">
             <svg
-              className="h-8 w-8 fill-gray-400 dark:fill-gray-500 group-hover:scale-125 dark:group-hover:fill-gray-400 group-hover:fill-gray-500 duration-300"
+              className="h-8 w-8 fill-gray-400 duration-300 group-hover:scale-125 group-hover:fill-gray-500 dark:fill-gray-500 dark:group-hover:fill-gray-400"
               viewBox="0 0 20 20"
             >
               <path
@@ -73,9 +73,9 @@ const Navbar = () => {
           </a>
         </Link>
         <Link href="/blog">
-          <a className="group relative snap-end flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 rounded-2xl bg-gray-200 dark:bg-gray-800 transition-all hover:scale-110 active:scale-95 border-2 border-opacity-0 dark:border-opacity-0 dark:hover:border-opacity-100 hover:border-opacity-100 border-blue-600 dark:border-blue-700 hover:shadow-blue-200 dark:hover:shadow-blue-800 hover:shadow-md">
+          <a className="group relative flex h-14 w-14 flex-shrink-0 snap-end items-center justify-center rounded-2xl border-2 border-blue-600 border-opacity-0 bg-gray-200 transition-all hover:scale-110 hover:border-opacity-100 hover:shadow-md hover:shadow-blue-200 active:scale-95 dark:border-blue-700 dark:border-opacity-0 dark:bg-gray-800 dark:hover:border-opacity-100 dark:hover:shadow-blue-800 sm:h-16 sm:w-16">
             <svg
-              className="h-8 w-8 fill-gray-400 dark:fill-gray-500 group-hover:scale-125 dark:group-hover:fill-gray-400 group-hover:fill-gray-500 duration-300"
+              className="h-8 w-8 fill-gray-400 duration-300 group-hover:scale-125 group-hover:fill-gray-500 dark:fill-gray-500 dark:group-hover:fill-gray-400"
               viewBox="0 0 20 20"
             >
               <path
@@ -88,9 +88,9 @@ const Navbar = () => {
           </a>
         </Link>
         <Link href="/bookshelf">
-          <a className="group relative snap-end flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 rounded-2xl bg-gray-200 dark:bg-gray-800 transition-all hover:scale-110 active:scale-95 border-2 border-opacity-0 dark:border-opacity-0 dark:hover:border-opacity-100 hover:border-opacity-100 border-blue-600 dark:border-blue-700 hover:shadow-blue-200 dark:hover:shadow-blue-800 hover:shadow-md">
+          <a className="group relative flex h-14 w-14 flex-shrink-0 snap-end items-center justify-center rounded-2xl border-2 border-blue-600 border-opacity-0 bg-gray-200 transition-all hover:scale-110 hover:border-opacity-100 hover:shadow-md hover:shadow-blue-200 active:scale-95 dark:border-blue-700 dark:border-opacity-0 dark:bg-gray-800 dark:hover:border-opacity-100 dark:hover:shadow-blue-800 sm:h-16 sm:w-16">
             <svg
-              className="h-8 w-8 fill-gray-400 dark:fill-gray-500 group-hover:scale-125 dark:group-hover:fill-gray-400 group-hover:fill-gray-500 duration-300"
+              className="h-8 w-8 fill-gray-400 duration-300 group-hover:scale-125 group-hover:fill-gray-500 dark:fill-gray-500 dark:group-hover:fill-gray-400"
               viewBox="0 0 20 20"
             >
               <path
@@ -103,9 +103,9 @@ const Navbar = () => {
           </a>
         </Link>
         <Link href="/guestbook">
-          <a className="group relative snap-end flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 rounded-2xl bg-gray-200 dark:bg-gray-800 transition-all hover:scale-110 active:scale-95 border-2 border-opacity-0 dark:border-opacity-0 dark:hover:border-opacity-100 hover:border-opacity-100 border-blue-600 dark:border-blue-700 hover:shadow-blue-200 dark:hover:shadow-blue-800 hover:shadow-md">
+          <a className="group relative flex h-14 w-14 flex-shrink-0 snap-end items-center justify-center rounded-2xl border-2 border-blue-600 border-opacity-0 bg-gray-200 transition-all hover:scale-110 hover:border-opacity-100 hover:shadow-md hover:shadow-blue-200 active:scale-95 dark:border-blue-700 dark:border-opacity-0 dark:bg-gray-800 dark:hover:border-opacity-100 dark:hover:shadow-blue-800 sm:h-16 sm:w-16">
             <svg
-              className="h-8 w-8 fill-gray-400 dark:fill-gray-500 group-hover:scale-125 dark:group-hover:fill-gray-400 group-hover:fill-gray-500 duration-300"
+              className="h-8 w-8 fill-gray-400 duration-300 group-hover:scale-125 group-hover:fill-gray-500 dark:fill-gray-500 dark:group-hover:fill-gray-400"
               viewBox="0 0 20 20"
             >
               <path
@@ -117,15 +117,15 @@ const Navbar = () => {
             <Tooltip text="Guestbook" />
           </a>
         </Link>
-        <hr className="border-r border h-16 dark:border-gray-700 rounded-lg" />
+        <hr className="h-16 rounded-lg border border-r dark:border-gray-700" />
         <DarkmodeButton />
         <a
           href="https://github.com/kevinzunigacuellar"
           target="_blank"
           rel="noopener noreferrer"
-          className="group relative snap-end flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 rounded-2xl bg-gray-200 dark:bg-gray-800 transition-all hover:scale-110 active:scale-95 border-2 border-opacity-0 dark:border-opacity-0 dark:hover:border-opacity-100 hover:border-opacity-100 border-blue-600 dark:border-blue-700 hover:shadow-blue-200 dark:hover:shadow-blue-800 hover:shadow-md"
+          className="group relative flex h-14 w-14 flex-shrink-0 snap-end items-center justify-center rounded-2xl border-2 border-blue-600 border-opacity-0 bg-gray-200 transition-all hover:scale-110 hover:border-opacity-100 hover:shadow-md hover:shadow-blue-200 active:scale-95 dark:border-blue-700 dark:border-opacity-0 dark:bg-gray-800 dark:hover:border-opacity-100 dark:hover:shadow-blue-800 sm:h-16 sm:w-16"
         >
-          <Github className="h-8 w-8 fill-gray-400 dark:fill-gray-500 group-hover:scale-125 dark:group-hover:fill-gray-400 group-hover:fill-gray-500 duration-300" />
+          <Github className="h-8 w-8 fill-gray-400 duration-300 group-hover:scale-125 group-hover:fill-gray-500 dark:fill-gray-500 dark:group-hover:fill-gray-400" />
           <Tooltip text="GitHub" />
         </a>
       </nav>
