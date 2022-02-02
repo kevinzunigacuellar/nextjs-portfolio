@@ -24,13 +24,13 @@ export default function Book({ img, title, author, year, comment }: BookProps) {
           <h2 className="font-semibold mb-1.5 text-xl dark:text-white text-gray-900">
             {title}
           </h2>
-          <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
+          <p className="mb-2 text-sm text-gray-600 dark:text-gray-400">
             <span className="text-indigo-600/95 dark:text-cyan-500 font-medium">
               {author}
             </span>{" "}
             <span>&middot;</span> <span>{year}</span>
           </p>
-          <p className="py-2 text-gray-500 dark:text-gray-400 leading-relaxed">{`"${comment}"`}</p>
+          <p className="py-2 text-gray-600 dark:text-gray-400 leading-relaxed">{`"${comment}"`}</p>
         </div>
       </article>
     </li>
