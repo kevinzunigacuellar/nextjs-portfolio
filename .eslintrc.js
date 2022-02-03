@@ -20,5 +20,6 @@ module.exports = {
   plugins: ["react", "@typescript-eslint"],
   rules: {
     "require-jsdoc": "off",
+    "new-cap": "off",
   },
 };
