@@ -20,7 +20,7 @@ const Home: NextPage = () => {
           <h1 className="mb-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
             Kevin Zuniga Cuellar
           </h1>
-          <h2 className="mb-4 font-medium text-gray-700 dark:text-gray-300">
+          <h2 className="mb-4 text-gray-900 dark:text-gray-300">
             Graduate Research Assistant at University of Vermont
           </h2>
 

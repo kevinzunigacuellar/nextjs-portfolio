@@ -1,7 +1,7 @@
 const LoadingSpinner = () => {
   return (
     <svg
-      className="ml-2 block h-4 w-4 animate-spin text-blue-900"
+      className="ml-2 block h-4 w-4 animate-spin"
       viewBox="0 0 24 24"
       fill="none"
     >
