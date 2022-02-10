@@ -1,19 +1,32 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useSession, signIn } from "next-auth/react";
+import useSWR, { useSWRConfig } from "swr";
 import type { NextPage } from "next";
 import Container from "components/Container";
 import LoadingSpinner from "components/LoadingSpinner";
 import Github from "components/icons/Github";
+import fetcher from "lib/fetcher";
 
 type Inputs = {
-  message: string;
+  body: string;
 };
 
-function sleep(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
+interface GuestbookEntry {
+  id: string;
+  body: string;
+  created_by: string;
+  updated_at: string;
+}
+
+interface EntryProps {
+  message: string;
+  author: string;
+  date: string;
 }
 
 const Guestbook: NextPage = () => {
+  const { data: entries } = useSWR<GuestbookEntry[]>("/api/guestbook", fetcher);
+
   return (
     <Container pageTitle="Guestbook" title="Guestbook - Kevin Zuniga Cuellar">
       <section className="mb-10 rounded-xl border border-blue-200 bg-blue-100 p-6 dark:border-blue-500 dark:bg-blue-800/90">
@@ -26,6 +39,23 @@ const Guestbook: NextPage = () => {
         </p>
         <GuestbookBody />
       </section>
+      <section className="grid grid-cols-1 gap-6">
+        {entries?.map(
+          ({
+            id,
+            body,
+            created_by: createdBy,
+            updated_at: updatedAt,
+          }: GuestbookEntry) => (
+            <Entry
+              message={body}
+              author={createdBy}
+              date={updatedAt}
+              key={id}
+            />
+          )
+        )}
+      </section>
     </Container>
   );
 };
@@ -33,6 +63,7 @@ const Guestbook: NextPage = () => {
 export default Guestbook;
 
 const GuestbookForm = () => {
+  const { mutate } = useSWRConfig();
   const {
     register,
     handleSubmit,
@@ -40,14 +71,24 @@ const GuestbookForm = () => {
   } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    await sleep(2000);
-    console.log(data);
+    try {
+      await fetch("/api/guestbook", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      await mutate("/api/guestbook");
+    } catch (err) {
+      console.error(err);
+    }
   };
   return (
     <form className="relative" onSubmit={handleSubmit(onSubmit)}>
       <input
         type="text"
-        {...register("message", {
+        {...register("body", {
           required: "Don't forget to write something",
           maxLength: 200,
         })}
@@ -64,7 +105,7 @@ const GuestbookForm = () => {
         {isSubmitting && <LoadingSpinner />}
       </button>
       <span className="text-xs font-medium text-indigo-600 dark:text-indigo-300">
-        {errors.message?.message}
+        {errors.body?.message}
       </span>
     </form>
   );
@@ -95,4 +136,24 @@ const GuestbookBody = () => {
   if (status === "unauthenticated") return <LogInWithGithub />;
 
   return <GuestbookForm />;
+};
+
+const Entry = ({ message, author, date }: EntryProps) => {
+  return (
+    <div className="rounded-xl bg-gray-100 p-6">
+      <p>{message}</p>
+      <p className="mt-2 text-sm">
+        <span>{author}</span> &middot;{" "}
+        <time dateTime={date}>
+          {new Date(date).toLocaleDateString("en", {
+            month: "short",
+            day: "2-digit",
+            year: "numeric",
+            hour: "numeric",
+            minute: "numeric",
+          })}
+        </time>
+      </p>
+    </div>
+  );
 };
