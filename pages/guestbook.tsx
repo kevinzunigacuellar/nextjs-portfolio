@@ -1,16 +1,28 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useSession, signIn } from "next-auth/react";
+import useSWR, { useSWRConfig } from "swr";
 import type { NextPage } from "next";
+import toast, { Toaster } from "react-hot-toast";
 import Container from "components/Container";
 import LoadingSpinner from "components/LoadingSpinner";
 import Github from "components/icons/Github";
+import fetcher from "lib/fetcher";
 
 type Inputs = {
-  message: string;
+  body: string;
 };
 
-function sleep(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
+interface GuestbookEntry {
+  id: string;
+  body: string;
+  created_by: string;
+  updated_at: string;
+}
+
+interface EntryProps {
+  message: string;
+  author: string;
+  date: string;
 }
 
 const Guestbook: NextPage = () => {
@@ -26,6 +38,8 @@ const Guestbook: NextPage = () => {
         </p>
         <GuestbookBody />
       </section>
+      <GuestbookEntries />
+      <Toaster />
     </Container>
   );
 };
@@ -33,21 +47,44 @@ const Guestbook: NextPage = () => {
 export default Guestbook;
 
 const GuestbookForm = () => {
+  const { mutate } = useSWRConfig();
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    await sleep(2000);
-    console.log(data);
+    await toast.promise(
+      fetch("/api/guestbook", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }),
+      {
+        loading: "Posting your comment...",
+        success: "Thank you for your comment!",
+        error: "Something went wrong. Please try again later.",
+      },
+      {
+        style: {
+          minWidth: "200px",
+        },
+        success: {
+          duration: 5000,
+        },
+      }
+    );
+    await mutate("/api/guestbook").then(() => reset());
   };
   return (
     <form className="relative" onSubmit={handleSubmit(onSubmit)}>
       <input
         type="text"
-        {...register("message", {
+        {...register("body", {
           required: "Don't forget to write something",
           maxLength: 200,
         })}
@@ -63,8 +100,8 @@ const GuestbookForm = () => {
         Sign
         {isSubmitting && <LoadingSpinner />}
       </button>
-      <span className="text-xs font-medium text-indigo-600 dark:text-indigo-300">
-        {errors.message?.message}
+      <span className="text-xs font-medium text-red-600 dark:text-cyan-400">
+        {errors.body?.message}
       </span>
     </form>
   );
@@ -73,7 +110,7 @@ const GuestbookForm = () => {
 const LogInWithGithub = () => {
   return (
     <button
-      className="dark:bg-bg-700 focus:ring-3 flex shrink-0 items-center rounded-xl bg-gray-900 px-4 py-1.5 font-medium text-white hover:bg-gray-700"
+      className="focus:ring-3 flex shrink-0 items-center rounded-xl border border-gray-800 bg-gray-800 px-4 py-1.5 text-white hover:bg-gray-700 dark:hover:border-gray-400"
       onClick={() => signIn("github")}
     >
       <Github className="mr-2 inline-block h-auto w-5 fill-white" /> Sign in
@@ -87,7 +124,7 @@ const GuestbookBody = () => {
 
   if (status === "loading")
     return (
-      <div className="flex w-full justify-center">
+      <div className="flex h-10 w-full items-center justify-center">
         <LoadingSpinner />
       </div>
     );
@@ -95,4 +132,62 @@ const GuestbookBody = () => {
   if (status === "unauthenticated") return <LogInWithGithub />;
 
   return <GuestbookForm />;
+};
+
+const Entry = ({ message, author, date }: EntryProps) => {
+  return (
+    <div className="rounded-xl bg-gray-100 p-6 dark:bg-gray-800">
+      <p className="text-gray-900 dark:text-gray-300">{message}</p>
+      <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+        <span>{author}</span> &middot;{" "}
+        <time dateTime={date}>
+          {new Date(date).toLocaleDateString("en", {
+            month: "short",
+            day: "2-digit",
+            year: "numeric",
+            hour: "numeric",
+            minute: "numeric",
+          })}
+        </time>
+      </p>
+    </div>
+  );
+};
+
+const GuestbookEntries = () => {
+  const { data } = useSWR<GuestbookEntry[]>("/api/guestbook", fetcher);
+  if (data === undefined) return <EntryPlaceholder />;
+  return (
+    <div className="grid grid-cols-1 gap-6">
+      {data.map(
+        ({
+          id,
+          body,
+          created_by: createdBy,
+          updated_at: updatedAt,
+        }: GuestbookEntry) => (
+          <Entry message={body} author={createdBy} date={updatedAt} key={id} />
+        )
+      )}
+    </div>
+  );
+};
+
+const EntryPlaceholder = () => {
+  return (
+    <div className="grid grid-cols-1 gap-6">
+      <div className="flex h-24 w-full animate-pulse flex-col space-y-3 rounded-xl bg-gray-100 p-6 dark:bg-gray-800">
+        <div className="h-5 w-4/5 rounded-lg bg-gray-300 dark:bg-gray-700"></div>
+        <div className="h-5 w-1/2 rounded-lg bg-gray-300 dark:bg-gray-700"></div>
+      </div>
+      <div className="flex h-24 w-full animate-pulse flex-col space-y-3 rounded-xl bg-gray-100 p-6 dark:bg-gray-800">
+        <div className="h-5 w-4/5 rounded-lg bg-gray-300 dark:bg-gray-700"></div>
+        <div className="h-5 w-1/2 rounded-lg bg-gray-300 dark:bg-gray-700"></div>
+      </div>
+      <div className="flex h-24 w-full animate-pulse flex-col space-y-3 rounded-xl bg-gray-100 p-6 dark:bg-gray-800">
+        <div className="h-5 w-4/5 rounded-lg bg-gray-300 dark:bg-gray-700"></div>
+        <div className="h-5 w-1/2 rounded-lg bg-gray-300 dark:bg-gray-700"></div>
+      </div>
+    </div>
+  );
 };
