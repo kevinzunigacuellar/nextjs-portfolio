@@ -112,6 +112,8 @@ function CurrentlyPlaying({
       <a
         className="flex flex-col text-xs text-gray-600 dark:text-gray-400 sm:text-sm"
         href={songUrl}
+        target="_blank"
+        rel="noopener noreferrer"
       >
         <span className="font-semibold text-gray-900 group-hover:text-indigo-500 dark:text-white dark:group-hover:text-cyan-400">
           {title}
