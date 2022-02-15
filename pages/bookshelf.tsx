@@ -14,6 +14,7 @@ const Bookshelf: NextPage = () => {
           comment="One of the best JavaScript books I have ever read. Even tough I finish this book a while ago. I still keep a hard copy in bookshelf to keep me always in day one mode."
           img={eloquentJavaScript}
           year={2018}
+          status="reading"
         />
         <Book
           title="Aprendiendo Git"
