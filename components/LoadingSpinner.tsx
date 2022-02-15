@@ -1,10 +1,6 @@
-const LoadingSpinner = () => {
+const LoadingSpinner = ({ className }: { className?: string }) => {
   return (
-    <svg
-      className="ml-2 block h-4 w-4 animate-spin"
-      viewBox="0 0 24 24"
-      fill="none"
-    >
+    <svg className={className} viewBox="0 0 24 24" fill="none">
       <circle
         className="stroke-current stroke-[4px] opacity-25"
         cx="12"
