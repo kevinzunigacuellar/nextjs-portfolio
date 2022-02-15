@@ -30,7 +30,7 @@ export default function Book({ img, title, author, year, comment }: BookProps) {
             </span>{" "}
             <span>&middot;</span> <span>{year}</span>
           </p>
-          <p className="py-2 leading-relaxed text-gray-600 dark:text-gray-400">{`"${comment}"`}</p>
+          <p className="py-1 leading-relaxed text-gray-600 dark:text-gray-400">{`"${comment}"`}</p>
         </div>
       </article>
     </li>

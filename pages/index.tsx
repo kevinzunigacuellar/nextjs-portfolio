@@ -16,7 +16,7 @@ const Home: NextPage = () => {
             layout="responsive"
           />
         </div>
-        <header className="mt-6 sm:my-0">
+        <header className="mt-6 max-w-lg sm:my-0 lg:max-w-none">
           <h1 className="mb-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
             Kevin Zuniga Cuellar
           </h1>

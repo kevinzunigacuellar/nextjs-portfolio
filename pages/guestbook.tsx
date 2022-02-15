@@ -98,7 +98,9 @@ const GuestbookForm = () => {
         className="bg-white-500 absolute top-[3px] right-[3px] flex w-24 items-center justify-center rounded-md bg-gray-200 px-4 py-2 font-semibold leading-5 text-gray-900 transition-colors hover:bg-gray-300 focus-visible:outline-none focus-visible:ring-2  focus-visible:ring-blue-400 focus-visible:ring-offset-2 disabled:bg-gray-100 disabled:text-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 dark:focus-visible:ring-blue-400 dark:focus-visible:ring-offset-gray-800 dark:disabled:bg-gray-900 dark:disabled:text-gray-400 sm:w-28"
       >
         Sign
-        {isSubmitting && <LoadingSpinner />}
+        {isSubmitting && (
+          <LoadingSpinner className="ml-2 block h-4 w-4 animate-spin" />
+        )}
       </button>
       <span className="text-xs font-medium text-red-600 dark:text-cyan-400">
         {errors.body?.message}
