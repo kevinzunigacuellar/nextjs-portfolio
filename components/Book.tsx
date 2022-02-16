@@ -33,13 +33,16 @@ export default function Book({
           <h2 className="mb-1.5 space-x-2 text-xl font-semibold text-gray-900 dark:text-white">
             {title}
           </h2>
-          <p className="mb-2 flex flex-wrap items-baseline space-x-1.5 space-y-0.5 text-sm text-gray-600 dark:text-gray-400 sm:space-y-0">
-            <span className="font-medium text-indigo-600/95 dark:text-cyan-500">
-              {author}
-            </span>{" "}
-            <span>&middot;</span> <span className="pr-2">{year}</span>
+          <div className="mb-2 sm:flex sm:items-baseline">
+            <p className="space-x-0.5 text-sm text-gray-600 dark:text-gray-400">
+              <span className="font-medium text-indigo-600/95 dark:text-cyan-500">
+                {author}
+              </span>{" "}
+              <span>&middot;</span> <span className="pr-0 sm:pr-2">{year}</span>
+            </p>
             {status && <Badge text={status} color="indigo" />}
-          </p>
+          </div>
+
           <p className="py-1 leading-relaxed text-gray-600 dark:text-gray-400">{`"${comment}"`}</p>
         </div>
       </article>
