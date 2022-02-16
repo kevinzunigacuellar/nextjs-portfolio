@@ -8,7 +8,6 @@ interface ContainerProps {
   image?: string;
   children: ReactNode;
   date?: string;
-  pageTitle?: string;
 }
 
 const defaultMeta = {
@@ -24,7 +23,6 @@ const Container = ({
   description,
   image,
   date,
-  pageTitle,
 }: ContainerProps & typeof defaultMeta) => {
   const router = useRouter();
   return (
@@ -53,11 +51,6 @@ const Container = ({
         <meta name="twitter:image" content={image} />
         {date && <meta property="article:published_time" content={date} />}
       </Head>
-      {pageTitle && (
-        <h1 className="pb-8 text-4xl font-bold tracking-tight text-gray-900 dark:text-white md:pb-10 md:text-5xl">
-          {pageTitle}
-        </h1>
-      )}
       {children}
     </>
   );

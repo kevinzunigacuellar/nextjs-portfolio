@@ -5,10 +5,12 @@ import computerScienceDistilled from "public/images/books/cs-distilled.jpg";
 import ReactExplained from "public/images/books/react-explained.jpg";
 import Container from "components/Container";
 import type { NextPage } from "next";
+import PageTitle from "components/PageTitle";
 
 const Bookshelf: NextPage = () => {
   return (
-    <Container pageTitle="Bookshelf" title="Bookshelf - Kevin Zuniga Cuellar">
+    <Container title="Bookshelf - Kevin Zuniga Cuellar">
+      <PageTitle>Bookshelf</PageTitle>
       <ul className="grid grid-cols-1 justify-items-center gap-10 md:justify-items-start">
         <Book
           title="Computer Science Distilled"
