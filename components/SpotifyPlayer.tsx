@@ -90,7 +90,7 @@ function CurrentlyPlaying({
     );
   }, []);
   return (
-    <div className="group flex items-center space-x-2">
+    <div className="group inline-flex items-center space-x-2">
       <div className="flex items-center space-x-0.5 rounded-md border border-gray-300 p-1 shadow-sm group-hover:shadow dark:border-gray-600">
         <span
           id="bar1"
