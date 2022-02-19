@@ -114,7 +114,7 @@ const GuestbookForm = () => {
 const LogInWithGithub = () => {
   return (
     <button
-      className="focus:ring-3 flex shrink-0 items-center rounded-xl border border-gray-800 bg-gray-800 px-4 py-1.5 text-white hover:bg-gray-700 dark:hover:border-gray-400"
+      className="focus:ring-3 flex shrink-0 items-center rounded-xl border border-gray-800 bg-gray-800 px-4 py-2 text-white hover:bg-gray-700 dark:hover:border-gray-400"
       onClick={() => signIn("github")}
     >
       <Github className="mr-2 inline-block h-auto w-5 fill-white" /> Sign in
@@ -128,9 +128,7 @@ const GuestbookBody = () => {
 
   if (status === "loading")
     return (
-      <div className="flex h-10 w-full items-center justify-center">
-        <LoadingSpinner />
-      </div>
+      <LoadingSpinner className="my-2 inline-block h-5 w-auto animate-spin" />
     );
 
   if (status === "unauthenticated") return <LogInWithGithub />;
