@@ -1,4 +1,4 @@
-const ReactLogo = ({ className }: { className: string }) => (
+const ReactLogo = ({ className }: { className?: string }) => (
   <svg
     height={2500}
     viewBox="175.7 78 490.6 436.9"

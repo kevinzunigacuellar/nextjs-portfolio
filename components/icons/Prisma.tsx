@@ -1,4 +1,4 @@
-const Prisma = ({ className }: { className: string }) => (
+const Prisma = ({ className }: { className?: string }) => (
   <svg
     fill="currentColor"
     viewBox="0.34 -0.06 33.117 39.964"

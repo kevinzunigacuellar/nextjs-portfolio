@@ -7,7 +7,8 @@ import Container from "components/Container";
 import LoadingSpinner from "components/LoadingSpinner";
 import Github from "components/icons/Github";
 import fetcher from "lib/fetcher";
-import PageTitle from "components/PageTitle";
+import Header from "components/Header";
+import { StarIcon } from "@heroicons/react/outline";
 
 type Inputs = {
   body: string;
@@ -29,7 +30,7 @@ interface EntryProps {
 const Guestbook: NextPage = () => {
   return (
     <Container title="Guestbook - Kevin Zuniga Cuellar">
-      <PageTitle>Guestbook</PageTitle>
+      <Header title="Guestbook" svg={<StarIcon />} />
       <section className="mb-10 rounded-xl border border-blue-200 bg-blue-100 p-6 dark:border-blue-500 dark:bg-blue-800/90">
         <h2 className="mb-2 text-xl font-semibold text-gray-900 dark:text-white">
           Sign the Guestbook

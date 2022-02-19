@@ -1,4 +1,4 @@
-const TailwindCSS = ({ className }: { className: string }) => (
+const TailwindCSS = ({ className }: { className?: string }) => (
   <svg fill="none" viewBox="0 0 54 33" className={className}>
     <g clipPath="url(#a)">
       <path

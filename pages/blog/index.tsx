@@ -1,11 +1,11 @@
 import Container from "components/Container";
-import PageTitle from "components/PageTitle";
-
+import Header from "components/Header";
 import type { NextPage } from "next";
+import { PencilIcon } from "@heroicons/react/outline";
 const Blog: NextPage = () => {
   return (
     <Container>
-      <PageTitle>Blog</PageTitle>
+      <Header title="Blog" svg={<PencilIcon />} />
       <h1>Hello Next.js</h1>
     </Container>
   );

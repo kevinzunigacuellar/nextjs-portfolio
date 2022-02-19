@@ -1,4 +1,4 @@
-const TypeScript = ({ className }: { className: string }) => (
+const TypeScript = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 400 400" className={className}>
     <path
       d="M0 200V0h400v400H0"

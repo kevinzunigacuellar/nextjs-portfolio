@@ -8,6 +8,7 @@ import Nextjs from "components/icons/Nextjs";
 import Prisma from "components/icons/Prisma";
 import ReactLogo from "components/icons/ReactLogo";
 import type { NextPage } from "next";
+import BubbleIcon from "components/BubbleIcon";
 
 const Home: NextPage = () => {
   return (
@@ -40,25 +41,41 @@ const Home: NextPage = () => {
         <h2 className="mb-6 text-2xl font-semibold dark:text-white">
           Favorite Technologies
         </h2>
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-2">
-          <Skill name="TypeScript">
-            <TypeScript className="m-0.5 h-auto w-full rounded" />
-          </Skill>
-          <Skill name="TailwindCSS">
-            <TailwindCSS className="h-auto w-full" />
-          </Skill>
-          <Skill name="Next.js">
-            <Nextjs className="h-auto w-full fill-current stroke-current text-gray-900 dark:text-white" />
-          </Skill>
-          <Skill name="PlanetScale">
-            <PlanetScale className="h-auto w-full rounded fill-transparent stroke-gray-900 dark:stroke-gray-200" />
-          </Skill>
-          <Skill name="Prisma">
-            <Prisma className="m-1 h-auto w-full" />
-          </Skill>
-          <Skill name="React">
-            <ReactLogo className="h-auto w-full" />
-          </Skill>
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
+          <Skill
+            name="TypeScript"
+            svg={<TypeScript className="m-0.5 h-auto w-full rounded" />}
+            href="https://www.typescriptlang.org/"
+          />
+          <Skill
+            name="TailwindCSS"
+            svg={<TailwindCSS className="h-auto w-full" />}
+            href="https://tailwindcss.com/"
+          />
+          <Skill
+            name="Next.js"
+            svg={
+              <Nextjs className="h-auto w-full fill-current stroke-current text-gray-900 dark:text-white" />
+            }
+            href="https://nextjs.org/"
+          />
+          <Skill
+            name="PlanetScale"
+            svg={
+              <PlanetScale className="h-auto w-full rounded fill-transparent stroke-gray-900 dark:stroke-gray-200" />
+            }
+            href="https://planetscale.com/"
+          />
+          <Skill
+            name="Prisma"
+            svg={<Prisma className="m-1 h-auto w-full" />}
+            href="https://www.prisma.io/"
+          />
+          <Skill
+            name="React"
+            svg={<ReactLogo className="h-auto w-full" />}
+            href="https://reactjs.org/"
+          />
         </div>
       </section>
     </Container>
@@ -67,13 +84,27 @@ const Home: NextPage = () => {
 
 export default Home;
 
-const Skill = ({ children, name }: { children: JSX.Element; name: string }) => {
+const Skill = ({
+  svg,
+  name,
+  href,
+}: {
+  svg: JSX.Element;
+  name: string;
+  href: string;
+}) => {
   return (
-    <div className="flex items-center space-x-3 rounded-lg">
-      <span className="flex h-12 w-12 items-center justify-center rounded-full border p-2 shadow-sm dark:border-gray-700/80 dark:bg-gray-800">
-        {children}
-      </span>
+    <a
+      className="flex items-center space-x-3 rounded-lg p-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <BubbleIcon
+        className="flex h-12 w-12 items-center justify-center rounded-full border p-2 shadow-sm dark:border-gray-700 dark:bg-gray-800"
+        svg={svg}
+      />
       <p className="font-normal text-gray-700 dark:text-gray-300">{name}</p>
-    </div>
+    </a>
   );
 };

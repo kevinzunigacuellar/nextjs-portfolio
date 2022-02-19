@@ -1,11 +1,12 @@
 import Container from "components/Container";
-import PageTitle from "components/PageTitle";
-
+import Header from "components/Header";
 import type { NextPage } from "next";
+import { UserCircleIcon } from "@heroicons/react/outline";
+
 const About: NextPage = () => {
   return (
     <Container>
-      <PageTitle>About</PageTitle>
+      <Header title="About" svg={<UserCircleIcon />} />
     </Container>
   );
 };

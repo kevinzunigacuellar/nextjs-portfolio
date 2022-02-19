@@ -1,4 +1,4 @@
-const Nextjs = ({ className }: { className: string }) => (
+const Nextjs = ({ className }: { className?: string }) => (
   <svg
     preserveAspectRatio="xMidYMid"
     viewBox="0 0 512 308.883"
