@@ -7,6 +7,7 @@ updates:
       interval: "weekly"
       time: "08:00"
       timezone: "EST"
+    open-pull-requests-limit: 15
     pull-request-branch-name:
       separator: "-"
     labels:
