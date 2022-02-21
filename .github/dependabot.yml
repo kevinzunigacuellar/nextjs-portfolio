@@ -14,5 +14,5 @@ updates:
     commit-message:
       prefix: "(fix) update"
     ignore:
-      dependency-name: "*"
-      update-types: ["version-update:semver-major"]
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
