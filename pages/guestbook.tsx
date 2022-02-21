@@ -139,7 +139,7 @@ const GuestbookBody = () => {
 
 const Entry = ({ message, author, date }: EntryProps) => {
   return (
-    <div className="rounded-xl bg-gray-100 p-6 dark:bg-gray-800">
+    <div className="rounded-xl bg-gray-50 p-6 dark:bg-gray-800">
       <p className="text-gray-900 dark:text-gray-300">{message}</p>
       <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
         <span>{author}</span> &middot;{" "}
