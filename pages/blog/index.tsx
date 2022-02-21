@@ -6,7 +6,7 @@ const Blog: NextPage = () => {
   return (
     <Container>
       <Header title="Blog" svg={<PencilIcon />} />
-      <h1>Hello Next.js</h1>
+      <p>Under construction</p>
     </Container>
   );
 };

@@ -7,6 +7,7 @@ const About: NextPage = () => {
   return (
     <Container>
       <Header title="About" svg={<UserCircleIcon />} />
+      <p>Under construction</p>
     </Container>
   );
 };
