@@ -1,4 +1,4 @@
-name: Merge Dependabot PR
+name: Update npm dependencies
 on: pull_request_target
 permissions:
   pull-requests: write
