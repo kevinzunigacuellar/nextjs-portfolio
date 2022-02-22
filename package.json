@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^1.0.5",
-    "@prisma/client": "^3.9.1",
+    "@prisma/client": "^3.9.2",
     "@tailwindcss/forms": "^0.4.0",
     "motion": "^10.6.2",
     "next": "12.1.0",
