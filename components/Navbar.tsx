@@ -44,7 +44,7 @@ const DarkmodeButton = () => {
 
 const Navbar = () => {
   return (
-    <footer className="fixed bottom-6 left-1/2 z-10 w-4/5 -translate-x-1/2 rounded-3xl border border-gray-300 bg-white/80 px-2.5 py-1.5 shadow-md backdrop-blur-sm dark:border-gray-700 dark:bg-gray-900/80 dark:shadow-black/60 sm:w-auto sm:p-2.5">
+    <footer className="fixed bottom-6 left-1/2 z-10 w-4/5 -translate-x-1/2 rounded-3xl border border-gray-300 bg-white/60 px-2.5 py-1.5 shadow backdrop-blur-sm dark:border-gray-700 dark:bg-gray-900/60 dark:shadow-black/60 sm:w-auto sm:p-2.5">
       <nav className="flex snap-x items-center justify-start gap-2.5 overflow-x-auto sm:overflow-x-visible">
         <Link href="/">
           <a className="group relative ml-1 flex h-14 w-14 flex-shrink-0 snap-end items-center justify-center rounded-2xl border-2 border-blue-600 border-opacity-0 bg-gray-200 transition-all hover:scale-110 hover:border-opacity-100 active:scale-95 dark:border-blue-700 dark:border-opacity-0 dark:bg-gray-800 dark:hover:border-opacity-100 dark:hover:shadow-blue-800 sm:m-0 sm:h-16 sm:w-16 sm:hover:shadow-md sm:hover:shadow-blue-200">

@@ -14,7 +14,7 @@ const Home: NextPage = () => {
   return (
     <Container>
       <section className="mb-10 sm:flex sm:items-center sm:justify-between">
-        <div className="order-2 block h-auto w-44 overflow-hidden rounded-full sm:m-0">
+        <div className="order-2 block h-auto w-40 overflow-hidden rounded-full sm:m-0">
           <Image
             className="aspect-square h-full w-full"
             src={profilePic}
@@ -23,7 +23,7 @@ const Home: NextPage = () => {
             layout="responsive"
           />
         </div>
-        <header className="mt-6 max-w-lg sm:my-0 lg:max-w-none">
+        <header className="mt-6 max-w-lg sm:my-0">
           <h1 className="mb-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
             Kevin Zuniga Cuellar
           </h1>

@@ -18,7 +18,7 @@ export default function Book({
   status,
 }: BookProps) {
   return (
-    <li className="font-body max-w-md overflow-hidden rounded-xl bg-gray-50 dark:border-gray-700 dark:bg-gray-800/90 sm:w-full sm:max-w-4xl">
+    <li className="font-body max-w-md overflow-hidden rounded-xl bg-gray-100 shadow dark:border-gray-700 dark:bg-gray-800/90 dark:shadow-black/40 sm:w-full sm:max-w-4xl">
       <article className="px-6 pt-6 sm:flex sm:pb-6">
         <figure className="block max-w-md shrink-0 overflow-hidden rounded-xl shadow-sm sm:w-40">
           <Image
@@ -35,9 +35,7 @@ export default function Book({
           </h2>
           <div className="mb-2 sm:flex sm:items-baseline">
             <p className="space-x-0.5 text-sm text-gray-600 dark:text-gray-400">
-              <span className="font-medium text-indigo-600/95 dark:text-cyan-500">
-                {author}
-              </span>{" "}
+              <span className="text-gray-800 dark:text-gray-300">{author}</span>{" "}
               <span>&middot;</span> <span className="pr-0 sm:pr-2">{year}</span>
             </p>
             {status && <Badge text={status} color="indigo" />}
