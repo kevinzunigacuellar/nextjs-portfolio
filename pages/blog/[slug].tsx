@@ -26,7 +26,7 @@ const Post = ({
       description={frontmatter.description}
       date={frontmatter.date}
     >
-      <main className="prose max-w-none prose-pre:bg-gray-100 prose-pre:text-gray-700 dark:prose-invert dark:prose-pre:bg-gray-800 dark:prose-pre:text-gray-300 lg:prose-lg">
+      <main className="prose max-w-none prose-a:text-blue-600 prose-pre:bg-gray-100 prose-pre:text-gray-700 dark:prose-invert dark:prose-a:text-blue-500 dark:prose-pre:bg-gray-800 dark:prose-pre:text-gray-300 lg:prose-lg">
         <Component components={{ Image: RoundedImage }} />
       </main>
     </Container>

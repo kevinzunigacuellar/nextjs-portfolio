@@ -5,6 +5,8 @@ date: "08-01-2021"
 slug: "make-a-markdown-blog-with-nextjs"
 ---
 
+## Make a markdown blog with Next.js
+
 ### When to use Markdown?
 
 Markdown is a great tool to create websites with dense content such as: blogs or documentation. It allows the author to spend less time coding HTML elements and CSS styles and more time to focus on the content.
@@ -17,7 +19,7 @@ Next.js is a react framework that has two forms of pre-rendering: Static Site Ge
 
 To code our Next.js markdown blog we will need a few libraries.
 
-```js
+```
 yarn add gray-matter
 yarn add remark
 yarn add remark-html
@@ -30,16 +32,13 @@ yarn add remark-html
 
 The first step is to create a next application. To create a project, run:
 
-```
+```shell
 npx create-next-app
-# or
-yarn create next-app
 ```
 
 Create a top-level directory called **posts**. Here we will store our markdown data. Let's begin by creating two posts.
 
-```
-/posts/first-post.md
+```md:posts/first-post.md
 ---
 title: Welcome to my first post
 description: My first post
@@ -49,8 +48,7 @@ description: My first post
 This is my first post.
 ```
 
-```
-/posts/second-post.md
+```md:posts/second-post.md
 ---
 title: Welcome to my second post
 description: My second post
@@ -68,9 +66,7 @@ We create a blog folder so the route of our new blog will be `example.com/blog/[
 
 In [slug].js create a new react component named **Post** and create two asynchronous functions: **getStaticProps** and **getStaticPaths**.
 
-```
-/pages/blog/[slug].js
-
+```jsx:pages/blog/[slug].js
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
@@ -110,50 +106,47 @@ Let's begin with `getStaticPaths`
 
 For a static blog, we will set fallback to **false**, so in case the user enters a path that was not generated at build time I will return a 404 page. Here is an example of how the return should look like:
 
-```
+```js
 return {
-  paths: [
-    { params: { slug: 'path-1' } },
-    { params: { slug: 'path-2' } }
-  ],
-  fallback: false
-}
+  paths: [{ params: { slug: "path-1" } }, { params: { slug: "path-2" } }],
+  fallback: false,
+};
 ```
 
 This is how our final code for getStaticPaths looks like let's dive into each line to see what happening:
 
-```
+```js
 export const getStaticPaths = async () => {
-  const files = fs.readdirSync('posts')
-  const paths = files.map(filename => ({
-    params: { slug: filename.replace('.md', '') },
-  }))
+  const files = fs.readdirSync("posts");
+  const paths = files.map((filename) => ({
+    params: { slug: filename.replace(".md", "") },
+  }));
   return {
     paths,
     fallback: false,
-  }
-}
+  };
+};
 ```
 
 1. readdirSync will read the folder posts and return an array with the name of the files that are inside.
 
-```
-const files = fs.readdirSync('posts')
+```js
+const files = fs.readdirSync("posts");
 ```
 
 2. map will interate every element in files; remove the '.md' and return paths as an object.
 
-```
-const paths = files.map(filename => ({
-    params: { slug: filename.replace('.md', '') },
-  }))
+```js
+const paths = files.map((filename) => ({
+  params: { slug: filename.replace(".md", "") },
+}));
 ```
 
 [getStaticProps](https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation) is used to pre-render the page content. It returns a props object which contains any information that we would like to pass to a component.
 
 When used with getStaticPaths (like in this example) it requires an object as a parameter. Here is an example how the object looks like.
 
-```
+```js
 export const getStaticProps = async (context) = {
   console.log(context)
   // context = { params: { slug } }
@@ -162,75 +155,76 @@ export const getStaticProps = async (context) = {
 
 This is how our final code for getStaticProps looks like let's dive into each line to see what happening:
 
-```
+```js
 export const getStaticProps = async ({ params: { slug } }) => {
   const markdownWithMetadata = fs.readFileSync(
-    path.join('posts', slug + '.md'),
-    'utf8'
-  )
-  const parsedMarkedown = matter(markdownWithMetadata)
-  const htmlContent = await markdownToHtml(parsedMarkedown.content)
+    path.join("posts", slug + ".md"),
+    "utf8"
+  );
+  const parsedMarkedown = matter(markdownWithMetadata);
+  const htmlContent = await markdownToHtml(parsedMarkedown.content);
   return {
     props: {
       contents: htmlContent,
       data: parsedMarkedown.data,
     },
-  }
-}
+  };
+};
 ```
 
 1. Destructure the parameter in one line to get the slug.
 
-```
-getStaticProps({ params: { slug } })
+```js
+getStaticProps({ params: { slug } });
 ```
 
 2. Use path.join to get the file path for the slug
 
-```
-path.join('posts', slug + '.md')
+```js
+path.join("posts", slug + ".md");
 ```
 
 3. readFileSync reads a file and converts it to a string
 
-```
+```js
 const markdownWithMetadata = fs.readFileSync(
-  path.join('posts', slug + '.md'),
-  'utf8')
+  path.join("posts", slug + ".md"),
+  "utf8"
+);
 ```
 
 4. Use gray-matter to parse the metadata and the content for a markdown
 
-```
-const parsedMarkdown = matter(markdownWithMetadata)
+```js
+const parsedMarkdown = matter(markdownWithMetadata);
 ```
 
 5. Convert the parsed markdown content to html
 
-```
-const htmlContent = await markdownToHtml(parsedMarkedown.content)
+```js
+const htmlContent = await markdownToHtml(parsedMarkedown.content);
 ```
 
 To make the code easier to follow I moved my markdownToHtml function into another js file but here is how it works behind the scenes.
 
-```
-import { unified } from 'unified'
-import remarkParse from 'remark-parse'
-import remarkHtml from 'remark-html'
+```js
+import { unified } from "unified";
+import remarkParse from "remark-parse";
+import remarkHtml from "remark-html";
 
-const markdownToHtml = async markdown => {
+const markdownToHtml = async (markdown) => {
   const processedContent = await unified()
     .use(remarkParse)
     .use(remarkHtml)
-    .process(markdown)
-  return processedContent.toString()
-}
+    .process(markdown);
+  return processedContent.toString();
+};
 ```
 
 Now that getStaticProps returns the props that we need we can populate our Post component.
 
-```
-import Head from 'next/head'
+```jsx:pages/blog/[slug].js
+import Head from "next/head";
 
 export default function Post({ contents, data }) {
   return (
@@ -240,18 +234,18 @@ export default function Post({ contents, data }) {
       </Head>
       <div dangerouslySetInnerHTML={{ __html: contents }}></div>
     </>
-  )
+  );
 }
 ```
 
 Congratulations, you have created your two first posts in your Next.js blog. Your [slug].js should look like this:
 
-```
-import fs from 'fs'
-import Head from 'next/head'
-import path from 'path'
-import matter from 'gray-matter'
-import markdownToHtml from '../../lib/markdownToHtml'
+```jsx:pages/blog/[slug].js
+import fs from "fs";
+import Head from "next/head";
+import path from "path";
+import matter from "gray-matter";
+import markdownToHtml from "../../lib/markdownToHtml";
 
 export default function Post({ contents, data }) {
   return (
@@ -259,45 +253,42 @@ export default function Post({ contents, data }) {
       <Head>
         <title>{data.title}</title>
       </Head>
-      <div
-        dangerouslySetInnerHTML={{ __html: contents }}></div>
+      <div dangerouslySetInnerHTML={{ __html: contents }}></div>
     </div>
-  )
+  );
 }
 
 export const getStaticPaths = async () => {
-  const files = fs.readdirSync('posts')
-  const paths = files.map(filename => ({
-    params: { slug: filename.replace('.md', '') },
-  }))
+  const files = fs.readdirSync("posts");
+  const paths = files.map((filename) => ({
+    params: { slug: filename.replace(".md", "") },
+  }));
   return {
     paths,
     fallback: false,
-  }
-}
+  };
+};
 
 export const getStaticProps = async ({ params: { slug } }) => {
   const markdownWithMetadata = fs.readFileSync(
-    path.join('posts', slug + '.md'),
-    'utf8'
-  )
-  const parsedMarkedown = matter(markdownWithMetadata)
-  const htmlContent = await markdownToHtml(parsedMarkedown.content)
+    path.join("posts", slug + ".md"),
+    "utf8"
+  );
+  const parsedMarkedown = matter(markdownWithMetadata);
+  const htmlContent = await markdownToHtml(parsedMarkedown.content);
   return {
     props: {
       contents: htmlContent,
       data: parsedMarkedown.data,
     },
-  }
-}
+  };
+};
 ```
 
 All thats left to do is to run start you development server.
 
-```
+```shell
 cd [name of your app]
-yarn dev
-# or
 npm run dev
 ```
 
