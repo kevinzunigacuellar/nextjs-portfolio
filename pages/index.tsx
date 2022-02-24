@@ -101,7 +101,7 @@ const Skill = ({
       rel="noopener noreferrer"
     >
       <BubbleIcon
-        className="flex h-12 w-12 items-center justify-center rounded-full border bg-white p-2 shadow-sm dark:border-0 dark:border-t dark:border-gray-700 dark:bg-gray-800"
+        className="flex h-12 w-12 items-center justify-center rounded-full bg-white p-2 shadow dark:border-0 dark:border-t dark:border-gray-700 dark:bg-gray-800"
         svg={svg}
       />
       <p className="font-normal text-gray-600 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-gray-300">

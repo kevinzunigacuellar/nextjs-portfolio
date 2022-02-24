@@ -19,7 +19,7 @@ const Blog = ({ posts }: { posts: [] }) => {
       <div className="grid grid-cols-1 gap-5">
         {posts.map((post: frontmatter) => (
           <Link href={`/blog/${post.slug}`} key={post.slug}>
-            <a className="group block rounded-xl bg-gray-100 p-6 leading-relaxed text-gray-600 shadow dark:bg-gray-800 dark:text-gray-400 dark:shadow-black/40">
+            <a className="group block rounded-xl bg-white p-6 leading-relaxed text-gray-600 shadow hover:shadow-md dark:bg-gray-800 dark:text-gray-400 dark:shadow-black/40">
               <h2 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600 dark:text-white dark:group-hover:text-cyan-400">
                 {post.title}
               </h2>

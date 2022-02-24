@@ -139,7 +139,7 @@ const GuestbookBody = () => {
 
 const Entry = ({ message, author, date }: EntryProps) => {
   return (
-    <div className="rounded-xl bg-gray-100 p-6 dark:bg-gray-800">
+    <div className="rounded-xl bg-white p-6 shadow-sm dark:bg-gray-800 dark:shadow-black/50">
       <p className="text-gray-900 dark:text-gray-300">{message}</p>
       <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
         <span>{author}</span> &middot;{" "}
@@ -179,15 +179,11 @@ const GuestbookEntries = () => {
 const EntryPlaceholder = () => {
   return (
     <div className="grid grid-cols-1 gap-6">
-      <div className="flex h-24 w-full animate-pulse flex-col space-y-3 rounded-xl bg-gray-100 p-6 dark:bg-gray-800">
+      <div className="flex h-24 w-full animate-pulse flex-col space-y-3 rounded-xl bg-white p-6 dark:bg-gray-800">
         <div className="h-5 w-4/5 rounded-lg bg-gray-300 dark:bg-gray-700"></div>
         <div className="h-5 w-1/2 rounded-lg bg-gray-300 dark:bg-gray-700"></div>
       </div>
-      <div className="flex h-24 w-full animate-pulse flex-col space-y-3 rounded-xl bg-gray-100 p-6 dark:bg-gray-800">
-        <div className="h-5 w-4/5 rounded-lg bg-gray-300 dark:bg-gray-700"></div>
-        <div className="h-5 w-1/2 rounded-lg bg-gray-300 dark:bg-gray-700"></div>
-      </div>
-      <div className="flex h-24 w-full animate-pulse flex-col space-y-3 rounded-xl bg-gray-100 p-6 dark:bg-gray-800">
+      <div className="flex h-24 w-full animate-pulse flex-col space-y-3 rounded-xl bg-white p-6 dark:bg-gray-800">
         <div className="h-5 w-4/5 rounded-lg bg-gray-300 dark:bg-gray-700"></div>
         <div className="h-5 w-1/2 rounded-lg bg-gray-300 dark:bg-gray-700"></div>
       </div>
