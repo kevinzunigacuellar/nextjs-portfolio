@@ -2,7 +2,8 @@ import Book from "components/Book";
 import eloquentJavaScript from "public/images/books/eloquent-javascript.jpg";
 import aprendiendoGit from "public/images/books/aprendiendo-git.png";
 import computerScienceDistilled from "public/images/books/cs-distilled.jpg";
-import ReactExplained from "public/images/books/react-explained.jpg";
+import reactExplained from "public/images/books/react-explained.jpg";
+import refactoringUI from "public/images/books/refactoring-ui.jpg";
 import Container from "components/Container";
 import type { NextPage } from "next";
 import Header from "components/Header";
@@ -29,6 +30,13 @@ const Bookshelf: NextPage = () => {
           year={2018}
         />
         <Book
+          title="Refactoring UI"
+          author="Adam Whatan and Steve Schoger"
+          comment="I absolutely loved this book. It improved my UI design skills a thousand times. This is a must have for every front-end developer."
+          img={refactoringUI}
+          year={2019}
+        />
+        <Book
           title="Aprendiendo Git"
           author="Miguel Ángel Duran"
           comment="I bought this book on presale to support one of my favorites twitch streamers. I highly recommend it regardless of your knowledge of git."
@@ -39,7 +47,7 @@ const Bookshelf: NextPage = () => {
           title="React Explained"
           author="Zac Gordon"
           comment="I had high expectations for this book given the popularity of React. I did't like the order of the topics and the content was not updated for 2018. I think React is better understood by doing and there is lots of content online. Don't waste your time reading this book."
-          img={ReactExplained}
+          img={reactExplained}
           year={2018}
         />
       </ul>
