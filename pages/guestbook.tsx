@@ -158,11 +158,11 @@ const Entry = ({ message, author, date }: EntryProps) => {
 };
 
 const GuestbookEntries = () => {
-  const { data } = useSWR<GuestbookEntry[]>("/api/guestbook", fetcher);
-  if (data === undefined) return <EntryPlaceholder />;
+  const { data: entries } = useSWR<GuestbookEntry[]>("/api/guestbook", fetcher);
+  if (entries === undefined) return <EntryPlaceholder />;
   return (
     <div className="grid grid-cols-1 gap-6">
-      {data.map(
+      {entries.map(
         ({
           id,
           body,
