@@ -2,11 +2,11 @@ import Image from "next/image";
 import Badge from "./Badge";
 interface BookProps {
   title: string;
-  img: string | StaticImageData;
+  img: string;
   author: string;
   year: number;
   comment: string;
-  status?: "reading";
+  reading?: boolean;
 }
 
 export default function Book({
@@ -15,17 +15,19 @@ export default function Book({
   author,
   year,
   comment,
-  status,
+  reading = false,
 }: BookProps) {
   return (
-    <li className="font-body max-w-md overflow-hidden rounded-xl bg-white shadow dark:border-gray-700 dark:bg-gray-800/90 dark:shadow-black/40 sm:w-full sm:max-w-4xl">
+    <li className="font-body max-w-md list-none overflow-hidden rounded-xl bg-white shadow dark:border-gray-700 dark:bg-gray-800/90 dark:shadow-black/40 sm:w-full sm:max-w-4xl">
       <article className="px-6 pt-6 sm:flex sm:pb-6">
-        <figure className="block max-w-md shrink-0 overflow-hidden rounded-xl shadow-sm sm:w-40">
+        <figure className="relative aspect-[3/4] max-w-md shrink-0 overflow-hidden rounded-xl shadow-sm sm:w-40">
           <Image
-            className="aspect-[3/4] h-full w-full"
+            className="absolute h-full w-full"
             src={img}
             alt={title}
-            layout="responsive"
+            objectFit="cover"
+            layout="fill"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mOsyQYAAWkA6VFHKYUAAAAASUVORK5CYII="
             placeholder="blur"
           />
         </figure>
@@ -38,9 +40,8 @@ export default function Book({
               <span className="text-gray-800 dark:text-gray-300">{author}</span>{" "}
               <span>&middot;</span> <span className="pr-0 sm:pr-2">{year}</span>
             </p>
-            {status && <Badge text={status} color="indigo" />}
+            {reading && <Badge text="reading" color="indigo" />}
           </div>
-
           <p className="py-1 leading-relaxed text-gray-600 dark:text-gray-400">{`"${comment}"`}</p>
         </div>
       </article>
