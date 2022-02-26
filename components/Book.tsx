@@ -1,5 +1,6 @@
-import Image from "next/image";
-import Badge from "./Badge";
+import Image from 'next/image';
+import Badge from 'components/Badge';
+
 interface BookProps {
   title: string;
   img: string;
@@ -10,12 +11,7 @@ interface BookProps {
 }
 
 export default function Book({
-  img,
-  title,
-  author,
-  year,
-  comment,
-  reading = false,
+  img, title, author, year, comment, reading,
 }: BookProps) {
   return (
     <li className="font-body max-w-md list-none overflow-hidden rounded-xl bg-white shadow dark:border-gray-700 dark:bg-gray-800/90 dark:shadow-black/40 sm:w-full sm:max-w-4xl">
@@ -37,8 +33,11 @@ export default function Book({
           </h2>
           <div className="mb-2 sm:flex sm:items-baseline">
             <p className="space-x-0.5 text-sm text-gray-600 dark:text-gray-400">
-              <span className="text-gray-800 dark:text-gray-300">{author}</span>{" "}
-              <span>&middot;</span> <span className="pr-0 sm:pr-2">{year}</span>
+              <span className="text-gray-800 dark:text-gray-300">{author}</span>
+              {' '}
+              <span>&middot;</span>
+              {' '}
+              <span className="pr-0 sm:pr-2">{year}</span>
             </p>
             {reading && <Badge text="reading" color="indigo" />}
           </div>
@@ -48,3 +47,7 @@ export default function Book({
     </li>
   );
 }
+
+Book.defaultProps = {
+  reading: false,
+};

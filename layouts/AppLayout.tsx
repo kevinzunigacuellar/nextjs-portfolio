@@ -1,6 +1,8 @@
-import SpotifyPlayer from "components/SpotifyPlayer";
-import Navbar from "components/Navbar";
-export default function AppLayout({ children }: { children: React.ReactNode }) {
+import SpotifyPlayer from 'components/SpotifyPlayer';
+import Navbar from 'components/Navbar';
+import { ReactNode } from 'react';
+
+export default function AppLayout({ children }: { children: ReactNode }) {
   return (
     <>
       <Navbar />

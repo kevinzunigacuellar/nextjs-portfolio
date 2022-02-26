@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
-import { useTheme } from "next-themes";
-import Link from "next/link";
-import Github from "components/icons/Github";
-import Tooltip from "components/Tooltip";
+import { useState, useEffect } from 'react';
+import { useTheme } from 'next-themes';
+import Link from 'next/link';
+import Github from 'components/icons/Github';
+import Tooltip from 'components/Tooltip';
 
-const DarkmodeButton = () => {
+function DarkmodeButton() {
   const [mounted, setMounted] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
 
@@ -12,7 +12,8 @@ const DarkmodeButton = () => {
 
   return (
     <button
-      onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+      onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
+      type="button"
       className="group relative flex h-14 w-14 flex-shrink-0 snap-end items-center justify-center rounded-2xl border-2 border-blue-600 border-opacity-0 bg-gray-200 shadow-none transition-all hover:scale-110 hover:border-opacity-100 active:scale-95 dark:border-blue-700 dark:border-opacity-0 dark:bg-gray-800 dark:hover:border-opacity-100 dark:hover:shadow-blue-800 sm:h-16 sm:w-16 sm:hover:shadow-md sm:hover:shadow-blue-200"
     >
       {mounted && (
@@ -20,7 +21,7 @@ const DarkmodeButton = () => {
           className="h-8 w-8 fill-gray-400 duration-300 group-hover:scale-125 group-hover:fill-gray-500 dark:fill-gray-500 dark:group-hover:fill-gray-400"
           viewBox="0 0 20 20"
         >
-          {resolvedTheme === "dark" ? (
+          {resolvedTheme === 'dark' ? (
             <path
               fillRule="evenodd"
               d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
@@ -36,13 +37,13 @@ const DarkmodeButton = () => {
         </svg>
       )}
       {mounted && (
-        <Tooltip text={resolvedTheme === "dark" ? "Light mode" : "Dark mode"} />
+        <Tooltip text={resolvedTheme === 'dark' ? 'Light mode' : 'Dark mode'} />
       )}
     </button>
   );
-};
+}
 
-const Navbar = () => {
+function Navbar() {
   return (
     <footer className="fixed bottom-6 left-1/2 z-10 w-4/5 -translate-x-1/2 rounded-3xl border border-gray-300 bg-white/60 px-2.5 py-1.5 shadow backdrop-blur-sm dark:border-gray-700 dark:bg-gray-900/60 dark:shadow-black/60 sm:w-auto sm:p-2.5">
       <nav className="flex snap-x items-center justify-start gap-2.5 overflow-x-auto sm:overflow-x-visible">
@@ -131,6 +132,6 @@ const Navbar = () => {
       </nav>
     </footer>
   );
-};
+}
 
 export default Navbar;

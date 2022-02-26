@@ -1,48 +1,39 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-import { bundleMDX } from "mdx-bundler";
-import rehypePrismPlus from "rehype-prism-plus";
-import rehypeCodeTitles from "rehype-code-titles";
-const POSTS_PATH = path.join(process.cwd(), "posts");
+/* eslint-disable no-param-reassign */
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+import { bundleMDX } from 'mdx-bundler';
+import rehypePrismPlus from 'rehype-prism-plus';
+import rehypeCodeTitles from 'rehype-code-titles';
 
-const getMdxSource = (file: string) => {
-  return fs.readFileSync(path.join(POSTS_PATH, file), "utf8");
-};
+const POSTS_PATH = path.join(process.cwd(), 'posts');
 
-export const getPosts = () => {
-  return fs
-    .readdirSync(path.join(POSTS_PATH))
-    .filter((path) => /\.mdx?$/.test(path))
-    .map((file) => {
-      const slug = file.replace(/\.mdx?$/, "");
-      const mdxSource = getMdxSource(file);
-      const { data } = matter(mdxSource);
+const getMdxSource = (file: string) => fs.readFileSync(path.join(POSTS_PATH, file), 'utf8');
 
-      return {
-        frontmatter: data,
-        slug: slug,
-      };
-    });
-};
+export const getPosts = () => fs
+  .readdirSync(path.join(POSTS_PATH))
+  .filter((postPath) => /\.mdx?$/.test(postPath))
+  .map((file) => {
+    const slug = file.replace(/\.mdx?$/, '');
+    const mdxSource = getMdxSource(file);
+    const { data } = matter(mdxSource);
+
+    return {
+      frontmatter: data,
+      slug,
+    };
+  });
 
 export const getPost = async (slug: string) => {
-  const mdxSource = getMdxSource(slug + ".mdx");
+  const mdxSource = getMdxSource(`${slug}.mdx`);
   const result = await bundleMDX({
     source: mdxSource,
-    xdmOptions(options, frontmatter) {
-      // this is the recommended way to add custom remark/rehype plugins:
-      // The syntax might look weird, but it protects you in case we add/remove
-      // plugins in the future.
+    xdmOptions(options) {
       options.remarkPlugins = [...(options.remarkPlugins ?? [])];
       options.rehypePlugins = [
         ...(options.rehypePlugins ?? []),
-        // rehypeSlug,
-        // rehypeAutolinkHeadings,
         rehypeCodeTitles,
-        // [rehypeCitation, { path: path.join(root, "data") }],
         [rehypePrismPlus, { ignoreMissing: true }],
-        // rehypePresetMinify,
       ];
       return options;
     },
@@ -57,9 +48,9 @@ export const getPost = async (slug: string) => {
 export const getPaths = () => {
   const paths = fs
     .readdirSync(path.join(POSTS_PATH))
-    .filter((path) => /\.mdx?$/.test(path))
+    .filter((filePath) => /\.mdx?$/.test(filePath))
     .map((fileName) => {
-      const slug = fileName.replace(/\.mdx?$/, "");
+      const slug = fileName.replace(/\.mdx?$/, '');
       return { params: { slug } };
     });
   return paths;

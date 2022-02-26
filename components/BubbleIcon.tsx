@@ -1,8 +1,8 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
 export default function BubbleIcon({
   svg,
-  className = "",
+  className = '',
 }: {
   svg: ReactNode;
   className: string;

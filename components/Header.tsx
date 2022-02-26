@@ -1,5 +1,6 @@
-import { ReactNode } from "react";
-import BubbleIcon from "components/BubbleIcon";
+import { ReactNode } from 'react';
+import BubbleIcon from 'components/BubbleIcon';
+
 interface HeaderProps {
   title: string;
   svg: ReactNode;

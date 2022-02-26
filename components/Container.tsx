@@ -1,6 +1,6 @@
-import Head from "next/head";
-import { useRouter } from "next/router";
-import { ReactNode } from "react";
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import { ReactNode } from 'react';
 
 interface ContainerProps {
   title?: string;
@@ -11,19 +11,16 @@ interface ContainerProps {
 }
 
 const defaultMeta = {
-  title: "Kevin Zuniga Cuellar",
+  title: 'Kevin Zuniga Cuellar',
   description:
-    "Front-end developer, TypeScript enthusiast, and a passionate learner.",
-  image: "https://kevinzunigacuellar.com/static/images/me.jpg",
+    'Front-end developer, TypeScript enthusiast, and a passionate learner.',
+  image: 'https://kevinzunigacuellar.com/static/images/me.jpg',
+  date: '',
 };
 
-const Container = ({
-  children,
-  title,
-  description,
-  image,
-  date,
-}: ContainerProps & typeof defaultMeta) => {
+export default function Container({
+  children, title, description, image, date,
+}: ContainerProps & typeof defaultMeta) {
   const router = useRouter();
   return (
     <>
@@ -54,8 +51,6 @@ const Container = ({
       {children}
     </>
   );
-};
+}
 
 Container.defaultProps = defaultMeta;
-
-export default Container;

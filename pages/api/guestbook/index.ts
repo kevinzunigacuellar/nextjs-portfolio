@@ -1,15 +1,15 @@
-import type { NextApiRequest, NextApiResponse } from "next";
-import { getSession } from "next-auth/react";
-import prisma from "lib/prisma";
+import type { NextApiRequest, NextApiResponse } from 'next';
+import { getSession } from 'next-auth/react';
+import prisma from 'lib/prisma';
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) {
-  if (req.method === "GET") {
+  if (req.method === 'GET') {
     const entries = await prisma.guestbook.findMany({
       orderBy: {
-        created_at: "desc",
+        created_at: 'desc',
       },
     });
 
@@ -19,21 +19,21 @@ export default async function handler(
         body: entry.body,
         created_by: entry.created_by,
         updated_at: entry.updated_at,
-      }))
+      })),
     );
   }
 
   const session = await getSession({ req });
 
-  if (!session) return res.status(403).send("Unauthorized");
+  if (!session) return res.status(403).send('Unauthorized');
 
   const { name, email } = session.user as { name: string; email: string };
 
-  if (req.method === "POST") {
+  if (req.method === 'POST') {
     const newEntry = await prisma.guestbook.create({
       data: {
         email,
-        body: (req.body.body || "").slice(0, 500),
+        body: (req.body.body || '').slice(0, 500),
         created_by: name,
       },
     });
@@ -46,5 +46,5 @@ export default async function handler(
     });
   }
 
-  return res.send("Method not allowed.");
+  return res.send('Method not allowed.');
 }

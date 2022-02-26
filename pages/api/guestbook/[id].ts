@@ -1,10 +1,10 @@
-import type { NextApiRequest, NextApiResponse } from "next";
-import { getSession } from "next-auth/react";
-import prisma from "lib/prisma";
+import type { NextApiRequest, NextApiResponse } from 'next';
+import { getSession } from 'next-auth/react';
+import prisma from 'lib/prisma';
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) {
   const { id } = req.query;
   const entry = await prisma.guestbook.findUnique({
@@ -15,7 +15,7 @@ export default async function handler(
 
   if (!entry) return res.status(404).send(`No entry found for id ${id}`);
 
-  if (req.method === "GET") {
+  if (req.method === 'GET') {
     return res.json({
       id: entry.id.toString(),
       body: entry.body,
@@ -25,15 +25,15 @@ export default async function handler(
   }
 
   const session = await getSession({ req });
-  if (!session) return res.status(403).send("Requires authentication");
+  if (!session) return res.status(403).send('Requires authentication');
 
   const { email } = session.user as { email: string };
 
   if (email !== entry.email) {
-    return res.status(403).send("Unauthorized");
+    return res.status(403).send('Unauthorized');
   }
 
-  if (req.method === "DELETE") {
+  if (req.method === 'DELETE') {
     await prisma.guestbook.delete({
       where: {
         id: Number(id),
@@ -43,8 +43,8 @@ export default async function handler(
     return res.status(204).json({});
   }
 
-  if (req.method === "PUT") {
-    const body = (req.body.body || "").slice(0, 500);
+  if (req.method === 'PUT') {
+    const body = (req.body.body || '').slice(0, 500);
 
     await prisma.guestbook.update({
       where: {
@@ -62,5 +62,5 @@ export default async function handler(
     });
   }
 
-  return res.send("Method not allowed :(");
+  return res.send('Method not allowed :(');
 }

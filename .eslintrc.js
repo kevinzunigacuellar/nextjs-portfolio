@@ -2,24 +2,37 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
+    node: true,
   },
   extends: [
-    "plugin:react/recommended",
-    "google",
-    "prettier",
-    "next/core-web-vitals",
+    'plugin:react/recommended',
+    'airbnb',
+    'next/core-web-vitals',
   ],
-  parser: "@typescript-eslint/parser",
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: "latest",
-    sourceType: "module",
+    ecmaVersion: 'latest',
+    sourceType: 'module',
   },
-  plugins: ["react", "@typescript-eslint"],
+  plugins: [
+    'react',
+    '@typescript-eslint',
+  ],
   rules: {
-    "require-jsdoc": "off",
-    "new-cap": "off",
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.tsx'] }],
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
+      },
+    ],
+    'jsx-a11y/anchor-is-valid': 'off',
   },
 };

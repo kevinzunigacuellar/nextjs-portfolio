@@ -1,16 +1,35 @@
-import Container from "components/Container";
-import Image from "next/image";
-import profilePic from "public/images/me.jpg";
-import TypeScript from "components/icons/TypeScript";
-import TailwindCSS from "components/icons/TailwindCSS";
-import PlanetScale from "components/icons/PlanetScale";
-import Nextjs from "components/icons/Nextjs";
-import Prisma from "components/icons/Prisma";
-import ReactLogo from "components/icons/ReactLogo";
-import type { NextPage } from "next";
-import BubbleIcon from "components/BubbleIcon";
+import Container from 'components/Container';
+import Image from 'next/image';
+import profilePic from 'public/images/me.jpg';
+import TypeScript from 'components/icons/TypeScript';
+import TailwindCSS from 'components/icons/TailwindCSS';
+import PlanetScale from 'components/icons/PlanetScale';
+import Nextjs from 'components/icons/Nextjs';
+import Prisma from 'components/icons/Prisma';
+import ReactLogo from 'components/icons/ReactLogo';
+import BubbleIcon from 'components/BubbleIcon';
+import { ReactNode } from 'react';
 
-const Home: NextPage = () => {
+function Skill({ svg, name, href } : { svg: ReactNode; name: string, href: string }) {
+  return (
+    <a
+      className="group flex items-center space-x-3 rounded-xl p-2 transition-colors hover:bg-gray-50 dark:hover:bg-gray-800/40"
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <BubbleIcon
+        className="flex h-12 w-12 items-center justify-center rounded-full bg-white p-2 shadow dark:border-0 dark:border-t dark:border-gray-700 dark:bg-gray-800"
+        svg={svg}
+      />
+      <p className="font-normal text-gray-600 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-gray-300">
+        {name}
+      </p>
+    </a>
+  );
+}
+
+export default function Home() {
   return (
     <Container>
       <section className="mb-10 sm:flex sm:items-center sm:justify-between">
@@ -80,33 +99,4 @@ const Home: NextPage = () => {
       </section>
     </Container>
   );
-};
-
-export default Home;
-
-const Skill = ({
-  svg,
-  name,
-  href,
-}: {
-  svg: JSX.Element;
-  name: string;
-  href: string;
-}) => {
-  return (
-    <a
-      className="group flex items-center space-x-3 rounded-xl p-2 transition-colors hover:bg-gray-50 dark:hover:bg-gray-800/40"
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <BubbleIcon
-        className="flex h-12 w-12 items-center justify-center rounded-full bg-white p-2 shadow dark:border-0 dark:border-t dark:border-gray-700 dark:bg-gray-800"
-        svg={svg}
-      />
-      <p className="font-normal text-gray-600 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-gray-300">
-        {name}
-      </p>
-    </a>
-  );
-};
+}

@@ -1,24 +1,32 @@
-import { getPost, getPaths } from "lib/mdx";
-import { GetStaticPaths, GetStaticProps } from "next";
-import Container from "components/Container";
-import { getMDXComponent } from "mdx-bundler/client";
-import { useMemo } from "react";
-import Image from "next/image";
+import { getPost, getPaths } from 'lib/mdx';
+import { GetStaticPaths, GetStaticProps } from 'next';
+import Container from 'components/Container';
+import { getMDXComponent } from 'mdx-bundler/client';
+import { useMemo } from 'react';
+import Image from 'next/image';
 
-interface frontmatter {
+interface frontmatterProps {
   title: string;
   date: string;
   description: string;
   slug: string;
 }
 
-const Post = ({
+function RoundedImage({ src, alt }: { src: string; alt: string }) {
+  return (
+    <div className="relative aspect-video w-full overflow-hidden rounded-lg">
+      <Image src={src} alt={alt} layout="fill" className="absolute" />
+    </div>
+  );
+}
+
+export default function Post({
   code,
   frontmatter,
 }: {
   code: string;
-  frontmatter: frontmatter;
-}) => {
+  frontmatter: frontmatterProps;
+}) {
   const Component = useMemo(() => getMDXComponent(code), [code]);
   return (
     <Container
@@ -31,17 +39,7 @@ const Post = ({
       </main>
     </Container>
   );
-};
-
-export default Post;
-
-const RoundedImage = ({ src, alt }: { src: string; alt: string }) => {
-  return (
-    <div className="relative aspect-video w-full overflow-hidden rounded-lg">
-      <Image src={src} alt={alt} layout="fill" className="absolute" />
-    </div>
-  );
-};
+}
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = getPaths();

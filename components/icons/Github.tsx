@@ -2,7 +2,7 @@ export default function Github({
   className,
 }: {
   className: string;
-}): JSX.Element {
+}) {
   return (
     <svg className={className} viewBox="0 0 256 249">
       <g>

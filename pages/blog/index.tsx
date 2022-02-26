@@ -1,9 +1,9 @@
-import Container from "components/Container";
-import Header from "components/Header";
-import type { GetStaticProps } from "next";
-import Link from "next/link";
-import { PencilIcon } from "@heroicons/react/outline";
-import { getPosts } from "lib/mdx";
+import Container from 'components/Container';
+import Header from 'components/Header';
+import type { GetStaticProps } from 'next';
+import Link from 'next/link';
+import { PencilIcon } from '@heroicons/react/outline';
+import { getPosts } from 'lib/mdx';
 
 interface frontmatter {
   title: string;
@@ -12,7 +12,7 @@ interface frontmatter {
   slug: string;
 }
 
-const Blog = ({ posts }: { posts: [] }) => {
+function Blog({ posts }: { posts: [] }) {
   return (
     <Container>
       <Header title="Blog" svg={<PencilIcon />} />
@@ -24,10 +24,10 @@ const Blog = ({ posts }: { posts: [] }) => {
                 {post.title}
               </h2>
               <time dateTime={post.date} className="text-gray-500">
-                {new Date(post.date).toLocaleDateString("en", {
-                  month: "long",
-                  day: "2-digit",
-                  year: "numeric",
+                {new Date(post.date).toLocaleDateString('en', {
+                  month: 'long',
+                  day: '2-digit',
+                  year: 'numeric',
                 })}
               </time>
               <p className="mt-2">{post.description}</p>
@@ -37,7 +37,7 @@ const Blog = ({ posts }: { posts: [] }) => {
       </div>
     </Container>
   );
-};
+}
 
 export default Blog;
 
