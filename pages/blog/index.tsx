@@ -14,7 +14,7 @@ interface frontmatter {
 
 function Blog({ posts }: { posts: [] }) {
   return (
-    <Container>
+    <Container title="Blog – Kevin Zuniga Cuellar">
       <Header title="Blog" svg={<PencilIcon />} />
       <div className="grid grid-cols-1 gap-5">
         {posts.map((post: frontmatter) => (

@@ -179,7 +179,7 @@ function GuestbookEntries() {
 
 export default function Guestbook() {
   return (
-    <Container title="Guestbook - Kevin Zuniga Cuellar">
+    <Container title="Guestbook – Kevin Zuniga Cuellar">
       <Header title="Guestbook" svg={<StarIcon />} />
       <section className="mb-10 rounded-xl border border-blue-200 bg-blue-100 p-6 dark:border-blue-500 dark:bg-blue-800/90">
         <h2 className="mb-2 text-xl font-semibold text-gray-900 dark:text-white">
