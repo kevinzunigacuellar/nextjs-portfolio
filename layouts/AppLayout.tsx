@@ -6,13 +6,11 @@ export default function AppLayout({ children }: { children: ReactNode }) {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen w-screen bg-gray-100 antialiased selection:bg-teal-300 selection:text-teal-900 dark:bg-gray-900/95 dark:selection:bg-indigo-300 dark:selection:text-indigo-900">
-        <div className="mx-auto max-w-3xl px-8 pb-36 pt-20">
-          {children}
-          <div className="mt-10 border-t pt-6 dark:border-gray-700">
-            <SpotifyPlayer />
-          </div>
-        </div>
+      <main className="mx-auto max-w-3xl px-8 mt-20 mb-36">
+        {children}
+        <footer className="mt-10 border-t pt-6 dark:border-gray-700">
+          <SpotifyPlayer />
+        </footer>
       </main>
     </>
   );

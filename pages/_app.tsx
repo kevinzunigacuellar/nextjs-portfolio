@@ -8,7 +8,7 @@ import 'styles/prism.css';
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
-    <ThemeProvider attribute="class" defaultTheme="system">
+    <ThemeProvider attribute="class" defaultTheme="system" disableTransitionOnChange>
       <SessionProvider session={session}>
         <AppLayout>
           <Component {...pageProps} />
