@@ -8,7 +8,7 @@ import LoadingSpinner from 'components/LoadingSpinner';
 import Github from 'components/icons/Github';
 import fetcher from 'lib/fetcher';
 import Header from 'components/Header';
-import { StarIcon } from '@heroicons/react/outline';
+import { AnnotationIcon } from '@heroicons/react/outline';
 
 type Inputs = {
   body: string;
@@ -186,7 +186,7 @@ function GuestbookEntries() {
 export default function Guestbook() {
   return (
     <Container title="Guestbook – Kevin Zuniga Cuellar">
-      <Header title="Guestbook" icon={<StarIcon />} />
+      <Header title="Guestbook" icon={<AnnotationIcon />} />
       <section className="mb-10 rounded-xl border border-blue-200 bg-blue-100 p-6 dark:border-blue-500
        dark:bg-blue-800/90"
       >
