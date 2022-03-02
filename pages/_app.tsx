@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import { ThemeProvider } from 'next-themes';
 import { SessionProvider } from 'next-auth/react';
 import type { AppProps } from 'next/app';

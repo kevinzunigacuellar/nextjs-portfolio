@@ -9,17 +9,10 @@ export default function Bookshelf() {
     <Container title="Bookshelf – Kevin Zuniga Cuellar">
       <Header title="Bookshelf" svg={<BookOpenIcon />} />
       <ul className="grid grid-cols-1 justify-items-center gap-10 md:justify-items-start">
-        {books.map(({
-          id, title, comment, year, author, img, reading,
-        }) => (
+        {books.map(({ id, ...rest }) => (
           <Book
             key={id}
-            title={title}
-            comment={comment}
-            year={year}
-            author={author}
-            img={img}
-            reading={reading}
+            {...rest}
           />
         ))}
       </ul>

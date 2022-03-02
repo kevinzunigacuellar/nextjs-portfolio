@@ -65,19 +65,25 @@ function GuestbookForm() {
     <form className="relative" onSubmit={handleSubmit(onSubmit)}>
       <input
         type="text"
-        // eslint-disable-next-line react/jsx-props-no-spreading
         {...register('body', {
           required: "Don't forget to write something",
           maxLength: 200,
         })}
         placeholder="Your message..."
         disabled={isSubmitting}
-        className="block w-full rounded-lg border-0 bg-gray-50 py-2 pl-3 pr-28 placeholder-gray-400 focus:bg-white focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-gray-800 dark:text-gray-300 dark:focus:bg-gray-900 dark:focus:ring-blue-500 sm:pr-32"
+        className="block w-full rounded-lg border-0 bg-gray-50 py-2 pl-3 pr-28 placeholder-gray-400 focus:bg-white
+        focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-gray-800 dark:text-gray-300
+        dark:focus:bg-gray-900 dark:focus:ring-blue-500 sm:pr-32"
       />
       <button
         type="submit"
         disabled={isSubmitting}
-        className="bg-white-500 absolute top-[2px] right-[2px] flex w-24 items-center justify-center rounded-md bg-gray-200 px-4 py-2 font-semibold leading-5 text-gray-900 transition-colors hover:bg-gray-300 focus-visible:outline-none focus-visible:ring-2  focus-visible:ring-blue-400 focus-visible:ring-offset-2 disabled:bg-gray-100 disabled:text-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 dark:focus-visible:ring-blue-400 dark:focus-visible:ring-offset-gray-800 dark:disabled:bg-gray-900 dark:disabled:text-gray-400 sm:w-28"
+        className="bg-white-500 absolute top-[2px] right-[2px] flex w-24 items-center justify-center rounded-md
+        bg-gray-200 px-4 py-2 font-semibold leading-5 text-gray-900 transition-colors hover:bg-gray-300
+        focus-visible:outline-none focus-visible:ring-2  focus-visible:ring-blue-400 focus-visible:ring-offset-2
+        disabled:bg-gray-100 disabled:text-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600
+        dark:focus-visible:ring-blue-400 dark:focus-visible:ring-offset-gray-800 dark:disabled:bg-gray-900
+        dark:disabled:text-gray-400 sm:w-28"
       >
         Sign
         {isSubmitting && (
@@ -94,14 +100,14 @@ function GuestbookForm() {
 function LogInWithGithub() {
   return (
     <button
-      className="focus:ring-3 flex shrink-0 items-center rounded-xl border border-gray-800 bg-gray-800 px-4 py-2 text-white hover:bg-gray-700 dark:hover:border-gray-400"
+      className="focus:ring-3 flex shrink-0 items-center rounded-xl border border-gray-800 bg-gray-800 px-4 py-2
+      text-white hover:bg-gray-700 dark:hover:border-gray-400"
       onClick={() => signIn('github')}
       type="button"
     >
       <Github className="mr-2 inline-block h-auto w-5 fill-white" />
       {' '}
-      Sign in
-      with GitHub
+      Sign in with GitHub
     </button>
   );
 }
@@ -181,7 +187,9 @@ export default function Guestbook() {
   return (
     <Container title="Guestbook – Kevin Zuniga Cuellar">
       <Header title="Guestbook" svg={<StarIcon />} />
-      <section className="mb-10 rounded-xl border border-blue-200 bg-blue-100 p-6 dark:border-blue-500 dark:bg-blue-800/90">
+      <section className="mb-10 rounded-xl border border-blue-200 bg-blue-100 p-6 dark:border-blue-500
+       dark:bg-blue-800/90"
+      >
         <h2 className="mb-2 text-xl font-semibold text-gray-900 dark:text-white">
           Sign the Guestbook
         </h2>

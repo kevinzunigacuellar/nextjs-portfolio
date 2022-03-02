@@ -7,11 +7,11 @@ interface BookProps {
   author: string;
   year: number;
   comment: string;
-  reading: boolean | undefined;
+  reading?: boolean;
 }
 
 export default function Book({
-  img, title, author, year, comment, reading = false,
+  img, title, author, year, comment, reading,
 }: BookProps) {
   return (
     <li className="font-body max-w-md list-none overflow-hidden rounded-xl bg-white shadow dark:border-gray-700 dark:bg-gray-800/90 dark:shadow-black/40 sm:w-full sm:max-w-4xl">
@@ -47,3 +47,6 @@ export default function Book({
     </li>
   );
 }
+Book.defaultProps = {
+  reading: false,
+};
