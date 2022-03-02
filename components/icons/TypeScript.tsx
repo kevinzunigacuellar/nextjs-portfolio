@@ -1,6 +1,6 @@
-export default function TypeScript({ className }: { className?: string }) {
+export default function TypeScript() {
   return (
-    <svg viewBox="0 0 400 400" className={className}>
+    <svg viewBox="0 0 400 400" className="m-0.5 h-auto w-full rounded">
       <path
         d="M0 200V0h400v400H0"
         style={{
@@ -16,7 +16,3 @@ export default function TypeScript({ className }: { className?: string }) {
     </svg>
   );
 }
-
-TypeScript.defaultProps = {
-  className: '',
-};

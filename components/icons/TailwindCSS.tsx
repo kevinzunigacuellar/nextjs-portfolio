@@ -1,6 +1,6 @@
-export default function TailwindCSS({ className }: { className?: string }) {
+export default function TailwindCSS() {
   return (
-    <svg fill="none" viewBox="0 0 54 33" className={className}>
+    <svg fill="none" viewBox="0 0 54 33" className="h-auto w-full">
       <g clipPath="url(#a)">
         <path
           fill="#38bdf8"
@@ -17,6 +17,3 @@ export default function TailwindCSS({ className }: { className?: string }) {
     </svg>
   );
 }
-TailwindCSS.defaultProps = {
-  className: '',
-};
