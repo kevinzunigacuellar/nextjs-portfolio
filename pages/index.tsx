@@ -1,37 +1,8 @@
 import Container from 'components/Container';
 import Image from 'next/image';
 import profilePic from 'public/images/me.jpg';
-import TypeScript from 'components/icons/TypeScript';
-import TailwindCSS from 'components/icons/TailwindCSS';
-import PlanetScale from 'components/icons/PlanetScale';
-import Nextjs from 'components/icons/Nextjs';
-import Prisma from 'components/icons/Prisma';
-import ReactLogo from 'components/icons/ReactLogo';
-import BubbleIcon from 'components/BubbleIcon';
-import { ReactNode } from 'react';
-
-function Skill({ svg, name, href } : { svg: ReactNode; name: string, href: string }) {
-  return (
-    <a
-      className="group flex items-center space-x-3 rounded-xl p-2 transition-colors hover:bg-gray-50
-      dark:hover:bg-gray-800/40"
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <BubbleIcon
-        className="flex h-12 w-12 items-center justify-center rounded-full bg-white p-2 shadow dark:border-0
-        dark:border-t dark:border-gray-700 dark:bg-gray-800"
-        svg={svg}
-      />
-      <p className="font-normal text-gray-600 group-hover:text-gray-900 dark:text-gray-400
-      dark:group-hover:text-gray-300"
-      >
-        {name}
-      </p>
-    </a>
-  );
-}
+import Skill from 'components/Skill';
+import skills from 'content/skills';
 
 export default function Home() {
   return (
@@ -65,40 +36,12 @@ export default function Home() {
           Favorite Technologies
         </h2>
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
-          <Skill
-            name="TypeScript"
-            svg={<TypeScript className="m-0.5 h-auto w-full rounded" />}
-            href="https://www.typescriptlang.org/"
-          />
-          <Skill
-            name="TailwindCSS"
-            svg={<TailwindCSS className="h-auto w-full" />}
-            href="https://tailwindcss.com/"
-          />
-          <Skill
-            name="Next.js"
-            svg={
-              <Nextjs className="h-auto w-full fill-current stroke-current text-gray-900 dark:text-white" />
-            }
-            href="https://nextjs.org/"
-          />
-          <Skill
-            name="PlanetScale"
-            svg={
-              <PlanetScale className="h-auto w-full rounded fill-transparent stroke-gray-900 dark:stroke-gray-200" />
-            }
-            href="https://planetscale.com/"
-          />
-          <Skill
-            name="Prisma"
-            svg={<Prisma className="m-1 h-auto w-full" />}
-            href="https://www.prisma.io/"
-          />
-          <Skill
-            name="React"
-            svg={<ReactLogo className="h-auto w-full" />}
-            href="https://reactjs.org/"
-          />
+          {skills.map(({ id, ...rest }) => (
+            <Skill
+              key={id}
+              {...rest}
+            />
+          ))}
         </div>
       </section>
     </Container>

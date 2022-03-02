@@ -5,7 +5,7 @@ import { UserCircleIcon } from '@heroicons/react/outline';
 export default function About() {
   return (
     <Container title="About – Kevin Zuniga Cuellar">
-      <Header title="About" svg={<UserCircleIcon />} />
+      <Header title="About" icon={<UserCircleIcon />} />
       <p>Under construction</p>
     </Container>
   );
