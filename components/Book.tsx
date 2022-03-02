@@ -14,7 +14,9 @@ export default function Book({
   img, title, author, year, comment, reading,
 }: BookProps) {
   return (
-    <li className="font-body max-w-md list-none overflow-hidden rounded-xl bg-white shadow dark:border-gray-700 dark:bg-gray-800/90 dark:shadow-black/40 sm:w-full sm:max-w-4xl">
+    <li className="font-body max-w-md list-none overflow-hidden rounded-xl bg-white shadow dark:border-gray-700
+    dark:bg-gray-800/90 dark:shadow-black/40 sm:w-full sm:max-w-4xl"
+    >
       <article className="px-6 pt-6 sm:flex sm:pb-6">
         <figure className="relative aspect-[3/4] max-w-md shrink-0 overflow-hidden rounded-xl shadow-sm sm:w-40">
           <Image

@@ -74,7 +74,9 @@ function CurrentlyPlaying({
   }, []);
   return (
     <div className="group inline-flex items-center space-x-2">
-      <div className="flex items-center space-x-0.5 rounded-md border border-gray-300 p-1 shadow-sm group-hover:shadow dark:border-gray-600">
+      <div className="flex items-center space-x-0.5 rounded-md border border-gray-300 p-1 shadow-sm group-hover:shadow
+      dark:border-gray-600"
+      >
         <span
           id="bar1"
           className="block h-5 w-1 rounded bg-indigo-500 dark:bg-cyan-500"
@@ -98,7 +100,9 @@ function CurrentlyPlaying({
         target="_blank"
         rel="noopener noreferrer"
       >
-        <span className="font-semibold text-gray-900 group-hover:text-indigo-500 dark:text-white dark:group-hover:text-cyan-400">
+        <span className="font-semibold text-gray-900 group-hover:text-indigo-500 dark:text-white
+        dark:group-hover:text-cyan-400"
+        >
           {title}
         </span>
         <span className="text-xs">{artist}</span>
