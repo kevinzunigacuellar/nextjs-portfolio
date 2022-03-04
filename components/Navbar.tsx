@@ -92,13 +92,13 @@ function Navbar() {
     >
       <nav className="flex snap-x items-center justify-start sm:gap-2.5 gap-1.5 overflow-x-auto sm:overflow-x-visible">
         {NAVIGATION.map(({ id, ...props }) => (<NavItem key={id} {...props} />))}
-        <hr className="h-16 rounded-lg border border-r dark:border-gray-700" />
+        <hr className="h-16 rounded-lg border border-r ml-1 sm:ml-0 dark:border-gray-700" />
         <DarkmodeButton />
         <a
           href="https://github.com/kevinzunigacuellar"
           target="_blank"
           rel="noopener noreferrer"
-          className="group relative mr-1.5 flex h-14 w-14 flex-shrink-0 snap-end items-center justify-center rounded-2xl
+          className="group relative mr-1.5 ml-1 flex h-14 w-14 flex-shrink-0 snap-end items-center justify-center rounded-2xl
           border-2 border-blue-600 border-opacity-0 bg-gray-200 shadow-none transition-all hover:scale-110
           hover:border-opacity-100 active:scale-95 dark:border-indigo-700 dark:border-opacity-0 dark:bg-gray-800
           dark:hover:border-opacity-100 dark:hover:shadow-indigo-800 sm:m-0 sm:h-16 sm:w-16 sm:hover:shadow-md
