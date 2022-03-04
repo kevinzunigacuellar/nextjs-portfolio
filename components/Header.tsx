@@ -8,8 +8,8 @@ interface HeaderProps {
 export default function Header({ title, icon }: HeaderProps) {
   return (
     <header className="mb-8 flex items-center space-x-4 text-gray-800 dark:text-white md:mb-10">
-      <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-white p-2 text-gray-400/80 shadow-sm
-      dark:bg-gray-800 dark:text-gray-600 dark:shadow-black/50"
+      <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white shadow-sm p-2 text-gray-500/80
+      dark:bg-gray-800 dark:text-gray-500"
       >
         {icon}
 

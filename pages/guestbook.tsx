@@ -73,7 +73,7 @@ function GuestbookForm() {
         disabled={isSubmitting}
         className="block w-full rounded-lg border-0 bg-gray-50 py-2 pl-3 pr-28 placeholder-gray-400 focus:bg-white
         focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-gray-800 dark:text-gray-300
-        dark:focus:bg-gray-900 dark:focus:ring-blue-500 sm:pr-32"
+        dark:focus:bg-gray-800 dark:focus:ring-indigo-500 sm:pr-32"
       />
       <button
         type="submit"
@@ -187,8 +187,8 @@ export default function Guestbook() {
   return (
     <Container title="Guestbook – Kevin Zuniga Cuellar">
       <Header title="Guestbook" icon={<AnnotationIcon />} />
-      <section className="mb-10 rounded-xl border border-blue-200 bg-blue-100 p-6 dark:border-blue-500
-       dark:bg-blue-800/90"
+      <section className="mb-10 rounded-xl border border-blue-200 bg-blue-100 p-6 dark:border-indigo-500
+       dark:bg-indigo-800/90"
       >
         <h2 className="mb-2 text-xl font-semibold text-gray-900 dark:text-white">
           Sign the Guestbook

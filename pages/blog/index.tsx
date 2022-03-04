@@ -19,15 +19,15 @@ function Blog({ posts }: { posts: [] }) {
       <div className="grid grid-cols-1 gap-5">
         {posts.map((post: frontmatter) => (
           <Link href={`/blog/${post.slug}`} key={post.slug}>
-            <a className="group block rounded-xl bg-white p-6 leading-relaxed text-gray-600 shadow hover:shadow-md
-            dark:bg-gray-800 dark:text-gray-400 dark:shadow-black/40"
+            <a className="group block rounded-2xl bg-white p-6 leading-relaxed text-gray-600 shadow hover:shadow-md
+            dark:bg-gray-800 dark:text-gray-400 dark:shadow-black/40 transition-all"
             >
               <h2 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600 dark:text-white
-              dark:group-hover:text-cyan-400"
+              dark:group-hover:text-indigo-500"
               >
                 {post.title}
               </h2>
-              <time dateTime={post.date} className="text-gray-500">
+              <time dateTime={post.date} className="text-gray-500 text-sm block">
                 {new Date(post.date).toLocaleDateString('en', {
                   month: 'long',
                   day: '2-digit',
