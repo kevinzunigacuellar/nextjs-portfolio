@@ -1,9 +1,10 @@
+import Image from 'next/image';
+import Container from 'components/Container';
+import BlogLayout from 'layouts/BlogLayout';
 import { getPost, getPaths } from 'lib/mdx';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import Container from 'components/Container';
 import { getMDXComponent } from 'mdx-bundler/client';
 import { useMemo } from 'react';
-import Image from 'next/image';
 
 interface frontmatterProps {
   title: string;
@@ -14,19 +15,21 @@ interface frontmatterProps {
 
 function RoundedImage({ src, alt }: { src: string; alt: string }) {
   return (
-    <div className="relative aspect-video w-full overflow-hidden rounded-lg">
-      <Image src={src} alt={alt} layout="fill" className="absolute" />
-    </div>
+    <figure className="relative aspect-video w-full overflow-hidden rounded-lg">
+      <Image
+        src={src}
+        alt={alt}
+        layout="fill"
+        placeholder="blur"
+        className="absolute"
+        blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mOsyQYAAWkA6VFHKYUAAAAASUVORK5CYII="
+      />
+    </figure>
   );
 }
 
-export default function Post({
-  code,
-  frontmatter,
-}: {
-  code: string;
-  frontmatter: frontmatterProps;
-}) {
+export default function Post({ code, frontmatter }:
+  { code: string, frontmatter: frontmatterProps }) {
   const Component = useMemo(() => getMDXComponent(code), [code]);
   return (
     <Container
@@ -34,11 +37,9 @@ export default function Post({
       description={frontmatter.description}
       date={frontmatter.date}
     >
-      <main className="prose max-w-none prose-a:text-blue-600 prose-pre:bg-white prose-pre:text-gray-700
-      dark:prose-invert dark:prose-a:text-blue-500 dark:prose-pre:bg-gray-800 dark:prose-pre:text-gray-300 lg:prose-lg"
-      >
+      <BlogLayout title={frontmatter.title} date={frontmatter.date}>
         <Component components={{ Image: RoundedImage }} />
-      </main>
+      </BlogLayout>
     </Container>
   );
 }
