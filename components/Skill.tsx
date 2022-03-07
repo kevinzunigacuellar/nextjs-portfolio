@@ -10,7 +10,7 @@ export default function Skill({ icon, name, href } :
       target="_blank"
       rel="noopener noreferrer"
     >
-      <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white p-2 shadow dark:border-0
+      <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white p-2 shadow dark:border-0
         dark:border-t dark:border-gray-700 dark:bg-gray-800"
       >
         {icon}

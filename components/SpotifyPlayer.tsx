@@ -111,7 +111,7 @@ function CurrentlyPlaying({
 
 function NotPlaying() {
   return (
-    <p className="flex max-w-xs items-center text-xs text-gray-600 dark:text-gray-400 sm:w-auto sm:text-sm">
+    <p className="flex max-w-xs items-center text-sm text-gray-600 dark:text-gray-400 sm:w-auto">
       <Spotify className="mr-2 inline-block h-4 w-auto" />
       <span className="font-semibold text-gray-900 dark:text-white">
         Not Playing

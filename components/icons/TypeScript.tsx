@@ -1,6 +1,6 @@
 export default function TypeScript() {
   return (
-    <svg viewBox="0 0 400 400" className="m-0.5 h-auto w-full rounded">
+    <svg viewBox="0 0 400 400" className="h-auto w-full rounded">
       <path
         d="M0 200V0h400v400H0"
         style={{

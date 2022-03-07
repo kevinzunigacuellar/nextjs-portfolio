@@ -20,7 +20,7 @@ function Blog({ posts }: { posts: [] }) {
         {posts.map((post: frontmatter) => (
           <Link href={`/blog/${post.slug}`} key={post.slug}>
             <a className="group block rounded-xl bg-white p-6 leading-relaxed text-gray-600 shadow hover:shadow-md
-            dark:bg-gray-800 dark:text-gray-400 dark:shadow-black/40 transition-all"
+            dark:bg-gray-800 dark:text-gray-400 dark:shadow-black/40 transition-shadow duration-300"
             >
               <h2 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600 dark:text-white
               dark:group-hover:text-indigo-500"
