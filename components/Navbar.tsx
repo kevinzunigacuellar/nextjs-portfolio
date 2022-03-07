@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Github from 'components/icons/Github';
 import Tooltip from 'components/Tooltip';
 import {
-  PencilIcon, AnnotationIcon, HomeIcon, UserCircleIcon, ViewBoardsIcon, SunIcon, MoonIcon,
+  PencilIcon, AnnotationIcon, HomeIcon, ViewBoardsIcon, SunIcon, MoonIcon,
 } from '@heroicons/react/solid';
 
 const NAVIGATION = [
@@ -16,24 +16,18 @@ const NAVIGATION = [
   },
   {
     id: 2,
-    href: '/about',
-    text: 'About',
-    icon: <UserCircleIcon />,
-  },
-  {
-    id: 3,
     href: '/blog',
     text: 'Blog',
     icon: <PencilIcon />,
   },
   {
-    id: 4,
+    id: 3,
     href: '/guestbook',
     text: 'Guestbook',
     icon: <AnnotationIcon />,
   },
   {
-    id: 5,
+    id: 4,
     href: '/bookshelf',
     text: 'Bookshelf',
     icon: <ViewBoardsIcon />,
@@ -86,8 +80,8 @@ function DarkmodeButton() {
 
 function Navbar() {
   return (
-    <footer className="fixed bottom-6 left-1/2 z-10 w-4/5 -translate-x-1/2 rounded-3xl border border-gray-300
-    bg-white/60 px-2.5 py-1.5 shadow backdrop-blur-sm dark:border-gray-700 dark:bg-gray-900/60
+    <footer className="fixed bottom-6 left-1/2 z-10 w-4/5 max-w-min sm:max-w-none -translate-x-1/2 rounded-3xl border border-gray-300
+    bg-white/60 px-2.5 py-1.5 shadow backdrop-blur-md dark:border-gray-700 dark:bg-gray-900/60
     dark:shadow-black/60 sm:w-auto sm:p-2.5"
     >
       <nav className="flex snap-x items-center justify-start sm:gap-2.5 gap-1.5 overflow-x-auto sm:overflow-x-visible">
