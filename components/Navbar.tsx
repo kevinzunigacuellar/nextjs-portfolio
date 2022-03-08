@@ -39,8 +39,8 @@ function NavItem({ href, text, icon }:{ href:string, text:string, icon:ReactNode
     <Link href={href}>
       <a className="group relative ml-1 flex h-14 w-14 flex-shrink-0 snap-end items-center justify-center rounded-2xl
       border-2 border-blue-600 border-opacity-0 bg-gray-200 transition-all hover:scale-110 hover:border-opacity-100
-      active:scale-95 dark:border-indigo-700 dark:border-opacity-0 dark:bg-gray-800 dark:hover:border-opacity-100
-      dark:hover:shadow-indigo-800 sm:m-0 sm:h-16 sm:w-16 sm:hover:shadow-md sm:hover:shadow-indigo-200"
+      active:scale-95 dark:border-indigo-600 dark:border-opacity-0 dark:bg-gray-800 dark:hover:border-opacity-100
+      dark:hover:shadow-indigo-500/30 sm:m-0 sm:h-16 sm:w-16 sm:hover:shadow-md sm:hover:shadow-indigo-200"
       >
         <span className="h-8 w-8 text-gray-400 duration-300 group-hover:scale-125 group-hover:text-gray-500 dark:text-gray-500 dark:group-hover:text-gray-400">
           {icon}
@@ -63,8 +63,8 @@ function DarkmodeButton() {
       type="button"
       className="group relative ml-1 flex h-14 w-14 flex-shrink-0 snap-end items-center justify-center rounded-2xl
       border-2 border-blue-600 border-opacity-0 bg-gray-200 transition-all hover:scale-110 hover:border-opacity-100
-      active:scale-95 dark:border-indigo-700 dark:border-opacity-0 dark:bg-gray-800 dark:hover:border-opacity-100
-      dark:hover:shadow-indigo-800 sm:m-0 sm:h-16 sm:w-16 sm:hover:shadow-md sm:hover:shadow-indigo-200"
+      active:scale-95 dark:border-indigo-600 dark:border-opacity-0 dark:bg-gray-800 dark:hover:border-opacity-100
+      dark:hover:shadow-indigo-500/30 sm:m-0 sm:h-16 sm:w-16 sm:hover:shadow-md sm:hover:shadow-indigo-200"
     >
       <span className="h-8 w-8 text-gray-400 duration-300 group-hover:scale-125 group-hover:text-gray-500
       dark:text-gray-500 dark:group-hover:text-gray-400"
@@ -94,8 +94,8 @@ function Navbar() {
           rel="noopener noreferrer"
           className="group relative mr-1.5 ml-1 flex h-14 w-14 flex-shrink-0 snap-end items-center justify-center rounded-2xl
           border-2 border-blue-600 border-opacity-0 bg-gray-200 shadow-none transition-all hover:scale-110
-          hover:border-opacity-100 active:scale-95 dark:border-indigo-700 dark:border-opacity-0 dark:bg-gray-800
-          dark:hover:border-opacity-100 dark:hover:shadow-indigo-800 sm:m-0 sm:h-16 sm:w-16 sm:hover:shadow-md
+          hover:border-opacity-100 active:scale-95 dark:border-indigo-600 dark:border-opacity-0 dark:bg-gray-800
+          dark:hover:border-opacity-100 dark:hover:shadow-indigo-500/30 sm:m-0 sm:h-16 sm:w-16 sm:hover:shadow-md
           sm:hover:shadow-indigo-200"
         >
           <Github className="h-8 w-8 fill-gray-400 duration-300 group-hover:scale-125 group-hover:fill-gray-500 dark:fill-gray-500 dark:group-hover:fill-gray-400" />
