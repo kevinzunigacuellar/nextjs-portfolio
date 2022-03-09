@@ -6,6 +6,7 @@ import Tooltip from 'components/Tooltip';
 import {
   PencilIcon, AnnotationIcon, HomeIcon, ViewBoardsIcon, SunIcon, MoonIcon,
 } from '@heroicons/react/solid';
+import LinkedIn from './icons/LinkedIn';
 
 const NAVIGATION = [
   {
@@ -92,14 +93,27 @@ function Navbar() {
           href="https://github.com/kevinzunigacuellar"
           target="_blank"
           rel="noopener noreferrer"
+          className="group relative ml-1 flex h-14 w-14 flex-shrink-0 snap-end items-center justify-center rounded-2xl
+          border-2 border-blue-600 border-opacity-0 bg-gray-200 shadow-none transition-all hover:scale-110
+          hover:border-opacity-100 active:scale-95 dark:border-indigo-600 dark:border-opacity-0 dark:bg-gray-800
+          dark:hover:border-opacity-100 dark:hover:shadow-indigo-500/30 sm:m-0 sm:h-16 sm:w-16 sm:hover:shadow-md
+          sm:hover:shadow-indigo-200"
+        >
+          <Github className="h-8 w-8 mb-0.5 fill-gray-400 duration-300 group-hover:scale-125 group-hover:fill-gray-500 dark:fill-gray-500 dark:group-hover:fill-gray-400" />
+          <Tooltip text="GitHub" />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/kevinzunigacuellar/"
+          target="_blank"
+          rel="noopener noreferrer"
           className="group relative mr-1.5 ml-1 flex h-14 w-14 flex-shrink-0 snap-end items-center justify-center rounded-2xl
           border-2 border-blue-600 border-opacity-0 bg-gray-200 shadow-none transition-all hover:scale-110
           hover:border-opacity-100 active:scale-95 dark:border-indigo-600 dark:border-opacity-0 dark:bg-gray-800
           dark:hover:border-opacity-100 dark:hover:shadow-indigo-500/30 sm:m-0 sm:h-16 sm:w-16 sm:hover:shadow-md
           sm:hover:shadow-indigo-200"
         >
-          <Github className="h-8 w-8 fill-gray-400 duration-300 group-hover:scale-125 group-hover:fill-gray-500 dark:fill-gray-500 dark:group-hover:fill-gray-400" />
-          <Tooltip text="GitHub" />
+          <LinkedIn className="ml-0.5 mb-0.5 h-8 w-8 p-0.5 fill-gray-400 duration-300 group-hover:scale-125 group-hover:fill-gray-500 dark:fill-gray-500 dark:group-hover:fill-gray-400" />
+          <Tooltip text="LinkedIn" />
         </a>
       </nav>
     </footer>
