@@ -13,8 +13,8 @@ interface ContainerProps {
 const defaultMeta = {
   title: 'Kevin Zuniga Cuellar',
   description:
-    'Front-end developer, TypeScript enthusiast, and a passionate learner.',
-  image: 'https://kevinzunigacuellar.com/static/images/me.jpg',
+    'Software engineer, TypeScript enthusiast, and a passionate learner.',
+  image: 'https://kevinzunigacuellar.com/banner.png',
   date: '',
 };
 
