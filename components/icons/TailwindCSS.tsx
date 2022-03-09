@@ -15,5 +15,5 @@ export default function TailwindCSS() {
         </clipPath>
       </defs>
     </svg>
-  );
+  )
 }

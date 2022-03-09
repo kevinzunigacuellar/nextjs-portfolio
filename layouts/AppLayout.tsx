@@ -1,6 +1,6 @@
-import SpotifyPlayer from 'components/SpotifyPlayer';
-import Navbar from 'components/Navbar';
-import { ReactNode } from 'react';
+import SpotifyPlayer from 'components/SpotifyPlayer'
+import Navbar from 'components/Navbar'
+import { ReactNode } from 'react'
 
 export default function AppLayout({ children }: { children: ReactNode }) {
   return (
@@ -13,5 +13,5 @@ export default function AppLayout({ children }: { children: ReactNode }) {
         </footer>
       </main>
     </>
-  );
+  )
 }

@@ -1,11 +1,18 @@
-import Image from 'next/image';
-import profilePic from 'public/images/me.jpg';
-import { ReactNode } from 'react';
-import Link from 'next/link';
-import { ArrowSmLeftIcon } from '@heroicons/react/solid';
+import Image from 'next/image'
+import profilePic from 'public/images/me.jpg'
+import { ReactNode } from 'react'
+import Link from 'next/link'
+import { ArrowSmLeftIcon } from '@heroicons/react/solid'
 
-export default function BlogLayout({ children, title, date }:
-  { children: ReactNode, title: string, date: string }) {
+export default function BlogLayout({
+  children,
+  title,
+  date,
+}: {
+  children: ReactNode
+  title: string
+  date: string
+}) {
   return (
     <>
       <Link href="/blog">
@@ -14,7 +21,9 @@ export default function BlogLayout({ children, title, date }:
           <p className="">back to blog</p>
         </a>
       </Link>
-      <h1 className="text-4xl sm:text-5xl font-sans font-semibold py-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-pink-500">{title}</h1>
+      <h1 className="text-4xl sm:text-5xl font-sans font-semibold py-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-pink-500">
+        {title}
+      </h1>
       <div className="flex space-x-2 mb-16 items-center justify-center text-gray-600 dark:text-gray-400 text-sm sm:text-base">
         <Image
           className="rounded-full w-full h-full"
@@ -22,7 +31,6 @@ export default function BlogLayout({ children, title, date }:
           height={24}
           src={profilePic}
           alt="Kevin Zuniga Cuellar"
-
         />
         <p className="">
           <span className="mr-2">Kevin</span>
@@ -34,11 +42,12 @@ export default function BlogLayout({ children, title, date }:
           </time>
         </p>
       </div>
-      <main className="prose max-w-none prose-a:text-blue-500 prose-a:no-underline prose-pre:bg-white prose-pre:text-gray-700
+      <main
+        className="prose max-w-none prose-a:text-blue-500 prose-a:no-underline prose-pre:bg-white prose-pre:text-gray-700
       dark:prose-invert dark:prose-a:text-indigo-500 dark:prose-pre:bg-gray-800 dark:prose-pre:text-gray-300"
       >
         {children}
       </main>
     </>
-  );
+  )
 }

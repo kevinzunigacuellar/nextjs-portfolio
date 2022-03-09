@@ -1,8 +1,8 @@
 ---
 title: Make a markdown blog with Next.js
 description: Learn how to make a static blog with Next.js and markdown
-date: "08-01-2021"
-slug: "make-a-markdown-blog-with-nextjs"
+date: '08-01-2021'
+slug: 'make-a-markdown-blog-with-nextjs'
 ---
 
 ### When to use Markdown?
@@ -106,38 +106,38 @@ For a static blog, we will set fallback to **false**, so in case the user enters
 
 ```js
 return {
-  paths: [{ params: { slug: "path-1" } }, { params: { slug: "path-2" } }],
+  paths: [{ params: { slug: 'path-1' } }, { params: { slug: 'path-2' } }],
   fallback: false,
-};
+}
 ```
 
 This is how our final code for getStaticPaths looks like let's dive into each line to see what happening:
 
 ```js
 export const getStaticPaths = async () => {
-  const files = fs.readdirSync("posts");
+  const files = fs.readdirSync('posts')
   const paths = files.map((filename) => ({
-    params: { slug: filename.replace(".md", "") },
-  }));
+    params: { slug: filename.replace('.md', '') },
+  }))
   return {
     paths,
     fallback: false,
-  };
-};
+  }
+}
 ```
 
 1. readdirSync will read the folder posts and return an array with the name of the files that are inside.
 
 ```js
-const files = fs.readdirSync("posts");
+const files = fs.readdirSync('posts')
 ```
 
 2. map will interate every element in files; remove the '.md' and return paths as an object.
 
 ```js
 const paths = files.map((filename) => ({
-  params: { slug: filename.replace(".md", "") },
-}));
+  params: { slug: filename.replace('.md', '') },
+}))
 ```
 
 [getStaticProps](https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation) is used to pre-render the page content. It returns a props object which contains any information that we would like to pass to a component.
@@ -155,68 +155,59 @@ This is how our final code for getStaticProps looks like let's dive into each li
 
 ```js
 export const getStaticProps = async ({ params: { slug } }) => {
-  const markdownWithMetadata = fs.readFileSync(
-    path.join("posts", slug + ".md"),
-    "utf8"
-  );
-  const parsedMarkedown = matter(markdownWithMetadata);
-  const htmlContent = await markdownToHtml(parsedMarkedown.content);
+  const markdownWithMetadata = fs.readFileSync(path.join('posts', slug + '.md'), 'utf8')
+  const parsedMarkedown = matter(markdownWithMetadata)
+  const htmlContent = await markdownToHtml(parsedMarkedown.content)
   return {
     props: {
       contents: htmlContent,
       data: parsedMarkedown.data,
     },
-  };
-};
+  }
+}
 ```
 
 1. Destructure the parameter in one line to get the slug.
 
 ```js
-getStaticProps({ params: { slug } });
+getStaticProps({ params: { slug } })
 ```
 
 2. Use path.join to get the file path for the slug
 
 ```js
-path.join("posts", slug + ".md");
+path.join('posts', slug + '.md')
 ```
 
 3. readFileSync reads a file and converts it to a string
 
 ```js
-const markdownWithMetadata = fs.readFileSync(
-  path.join("posts", slug + ".md"),
-  "utf8"
-);
+const markdownWithMetadata = fs.readFileSync(path.join('posts', slug + '.md'), 'utf8')
 ```
 
 4. Use gray-matter to parse the metadata and the content for a markdown
 
 ```js
-const parsedMarkdown = matter(markdownWithMetadata);
+const parsedMarkdown = matter(markdownWithMetadata)
 ```
 
 5. Convert the parsed markdown content to html
 
 ```js
-const htmlContent = await markdownToHtml(parsedMarkedown.content);
+const htmlContent = await markdownToHtml(parsedMarkedown.content)
 ```
 
 To make the code easier to follow I moved my markdownToHtml function into another js file but here is how it works behind the scenes.
 
 ```js
-import { unified } from "unified";
-import remarkParse from "remark-parse";
-import remarkHtml from "remark-html";
+import { unified } from 'unified'
+import remarkParse from 'remark-parse'
+import remarkHtml from 'remark-html'
 
 const markdownToHtml = async (markdown) => {
-  const processedContent = await unified()
-    .use(remarkParse)
-    .use(remarkHtml)
-    .process(markdown);
-  return processedContent.toString();
-};
+  const processedContent = await unified().use(remarkParse).use(remarkHtml).process(markdown)
+  return processedContent.toString()
+}
 ```
 
 Now that getStaticProps returns the props that we need we can populate our Post component.

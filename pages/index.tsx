@@ -1,8 +1,8 @@
-import Container from 'components/Container';
-import Image from 'next/image';
-import profilePic from 'public/images/me.jpg';
-import Skill from 'components/Skill';
-import skills from 'content/skills';
+import Container from 'components/Container'
+import Image from 'next/image'
+import profilePic from 'public/images/me.jpg'
+import Skill from 'components/Skill'
+import skills from 'content/skills'
 
 export default function Home() {
   return (
@@ -25,25 +25,20 @@ export default function Home() {
             Graduate Research Assistant at University of Vermont
           </h2>
           <p className="w-full font-normal leading-7 text-gray-600 dark:text-gray-400 sm:max-w-sm md:max-w-xl">
-            Welcome to my slice of the internet. I am a graduate student in
-            mechanical engineering at University of Vermont. In my free time I
-            enjoy making websites and experimenting with web app technologies
+            Welcome to my slice of the internet. I am a graduate student in mechanical engineering
+            at University of Vermont. In my free time I enjoy making websites and experimenting with
+            web app technologies
           </p>
         </header>
       </section>
       <section>
-        <h2 className="mb-6 text-2xl font-semibold dark:text-white">
-          Favorite Technologies
-        </h2>
+        <h2 className="mb-6 text-2xl font-semibold dark:text-white">Favorite Technologies</h2>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
           {skills.map(({ id, ...rest }) => (
-            <Skill
-              key={id}
-              {...rest}
-            />
+            <Skill key={id} {...rest} />
           ))}
         </div>
       </section>
     </Container>
-  );
+  )
 }

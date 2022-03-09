@@ -1,9 +1,9 @@
-import TypeScript from 'components/icons/TypeScript';
-import TailwindCSS from 'components/icons/TailwindCSS';
-import ReactLogo from 'components/icons/ReactLogo';
-import Nextjs from 'components/icons/Nextjs';
-import PlanetScale from 'components/icons/PlanetScale';
-import Prisma from 'components/icons/Prisma';
+import TypeScript from 'components/icons/TypeScript'
+import TailwindCSS from 'components/icons/TailwindCSS'
+import ReactLogo from 'components/icons/ReactLogo'
+import Nextjs from 'components/icons/Nextjs'
+import PlanetScale from 'components/icons/PlanetScale'
+import Prisma from 'components/icons/Prisma'
 
 const skills = [
   {
@@ -42,6 +42,6 @@ const skills = [
     href: 'https://www.prisma.io/',
     icon: <Prisma />,
   },
-];
+]
 
-export default skills;
+export default skills

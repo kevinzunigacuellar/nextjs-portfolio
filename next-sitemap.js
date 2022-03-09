@@ -3,4 +3,4 @@
 module.exports = {
   siteUrl: process.env.SITE_URL || 'https://kevinzunigacuellar.com',
   generateRobotsTxt: true,
-};
+}

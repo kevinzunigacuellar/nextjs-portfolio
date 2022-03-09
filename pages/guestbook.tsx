@@ -1,40 +1,40 @@
 /* eslint-disable react/no-unused-prop-types */
-import { useForm, SubmitHandler } from 'react-hook-form';
-import { useSession, signIn } from 'next-auth/react';
-import useSWR, { useSWRConfig } from 'swr';
-import toast, { Toaster } from 'react-hot-toast';
-import Container from 'components/Container';
-import LoadingSpinner from 'components/LoadingSpinner';
-import Github from 'components/icons/Github';
-import fetcher from 'lib/fetcher';
-import Header from 'components/Header';
-import { AnnotationIcon } from '@heroicons/react/outline';
+import { useForm, SubmitHandler } from 'react-hook-form'
+import { useSession, signIn } from 'next-auth/react'
+import useSWR, { useSWRConfig } from 'swr'
+import toast, { Toaster } from 'react-hot-toast'
+import Container from 'components/Container'
+import LoadingSpinner from 'components/LoadingSpinner'
+import Github from 'components/icons/Github'
+import fetcher from 'lib/fetcher'
+import Header from 'components/Header'
+import { AnnotationIcon } from '@heroicons/react/outline'
 
 type Inputs = {
-  body: string;
-};
+  body: string
+}
 
 interface GuestbookEntry {
-  id: string;
-  body: string;
-  created_by: string;
-  updated_at: string;
+  id: string
+  body: string
+  created_by: string
+  updated_at: string
 }
 
 interface EntryProps {
-  message: string;
-  author: string;
-  date: string;
+  message: string
+  author: string
+  date: string
 }
 
 function GuestbookForm() {
-  const { mutate } = useSWRConfig();
+  const { mutate } = useSWRConfig()
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm<Inputs>();
+  } = useForm<Inputs>()
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     await toast.promise(
@@ -57,10 +57,10 @@ function GuestbookForm() {
         success: {
           duration: 5000,
         },
-      },
-    );
-    await mutate('/api/guestbook').then(() => reset());
-  };
+      }
+    )
+    await mutate('/api/guestbook').then(() => reset())
+  }
   return (
     <form className="relative" onSubmit={handleSubmit(onSubmit)}>
       <input
@@ -86,15 +86,13 @@ function GuestbookForm() {
         dark:disabled:text-gray-400 sm:w-28"
       >
         Sign
-        {isSubmitting && (
-          <LoadingSpinner className="ml-2 block h-4 w-4 animate-spin" />
-        )}
+        {isSubmitting && <LoadingSpinner className="ml-2 block h-4 w-4 animate-spin" />}
       </button>
       <span className="text-xs font-medium text-red-600 dark:text-cyan-400">
         {errors.body?.message}
       </span>
     </form>
-  );
+  )
 }
 
 function LogInWithGithub() {
@@ -105,25 +103,21 @@ function LogInWithGithub() {
       onClick={() => signIn('github')}
       type="button"
     >
-      <Github className="mr-2 inline-block h-auto w-5 fill-white" />
-      {' '}
-      Sign in with GitHub
+      <Github className="mr-2 inline-block h-auto w-5 fill-white" /> Sign in with GitHub
     </button>
-  );
+  )
 }
 
 function GuestbookBody() {
-  const { status } = useSession();
+  const { status } = useSession()
 
   if (status === 'loading') {
-    return (
-      <LoadingSpinner className="my-2 inline-block h-5 w-auto animate-spin" />
-    );
+    return <LoadingSpinner className="my-2 inline-block h-5 w-auto animate-spin" />
   }
 
-  if (status === 'unauthenticated') return <LogInWithGithub />;
+  if (status === 'unauthenticated') return <LogInWithGithub />
 
-  return <GuestbookForm />;
+  return <GuestbookForm />
 }
 
 function Entry({ message, author, date }: EntryProps) {
@@ -131,10 +125,7 @@ function Entry({ message, author, date }: EntryProps) {
     <div className="rounded-xl bg-white p-6 shadow-sm dark:bg-gray-800 dark:shadow-black/50">
       <p className="text-gray-900 dark:text-gray-300">{message}</p>
       <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
-        <span>{author}</span>
-        {' '}
-        &middot;
-        {' '}
+        <span>{author}</span> &middot;{' '}
         <time dateTime={date}>
           {new Date(date).toLocaleDateString('en', {
             month: 'short',
@@ -146,7 +137,7 @@ function Entry({ message, author, date }: EntryProps) {
         </time>
       </p>
     </div>
-  );
+  )
 }
 
 function EntryPlaceholder() {
@@ -161,46 +152,40 @@ function EntryPlaceholder() {
         <div className="h-5 w-1/2 rounded-lg bg-gray-300 dark:bg-gray-700" />
       </div>
     </div>
-  );
+  )
 }
 
 function GuestbookEntries() {
-  const { data: entries } = useSWR<GuestbookEntry[]>('/api/guestbook', fetcher);
-  if (entries === undefined) return <EntryPlaceholder />;
+  const { data: entries } = useSWR<GuestbookEntry[]>('/api/guestbook', fetcher)
+  if (entries === undefined) return <EntryPlaceholder />
   return (
     <div className="grid grid-cols-1 gap-6">
-      {entries.map(
-        ({
-          id,
-          body,
-          created_by: createdBy,
-          updated_at: updatedAt,
-        }: GuestbookEntry) => (
-          <Entry message={body} author={createdBy} date={updatedAt} key={id} />
-        ),
-      )}
+      {entries.map(({ id, body, created_by: createdBy, updated_at: updatedAt }: GuestbookEntry) => (
+        <Entry message={body} author={createdBy} date={updatedAt} key={id} />
+      ))}
     </div>
-  );
+  )
 }
 
 export default function Guestbook() {
   return (
     <Container title="Guestbook – Kevin Zuniga Cuellar">
       <Header title="Guestbook" icon={<AnnotationIcon />} />
-      <section className="mb-10 rounded-xl border border-blue-200 bg-blue-100 p-6 dark:border-indigo-500
+      <section
+        className="mb-10 rounded-xl border border-blue-200 bg-blue-100 p-6 dark:border-indigo-500
        dark:bg-indigo-800/90"
       >
         <h2 className="mb-2 text-xl font-semibold text-gray-900 dark:text-white">
           Sign the Guestbook
         </h2>
         <p className="mb-4 leading-7 text-gray-600 dark:text-blue-200">
-          Feel free to share a message with a future visitor or tell me what you
-          like the most about my website.
+          Feel free to share a message with a future visitor or tell me what you like the most about
+          my website.
         </p>
         <GuestbookBody />
       </section>
       <GuestbookEntries />
       <Toaster />
     </Container>
-  );
+  )
 }

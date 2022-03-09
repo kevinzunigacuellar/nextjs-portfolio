@@ -10,5 +10,5 @@ export default function Prisma() {
         fillRule="evenodd"
       />
     </svg>
-  );
+  )
 }

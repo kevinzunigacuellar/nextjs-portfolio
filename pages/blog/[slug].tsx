@@ -1,16 +1,16 @@
-import Image from 'next/image';
-import Container from 'components/Container';
-import BlogLayout from 'layouts/BlogLayout';
-import { getPost, getPaths } from 'lib/mdx';
-import { GetStaticPaths, GetStaticProps } from 'next';
-import { getMDXComponent } from 'mdx-bundler/client';
-import { useMemo } from 'react';
+import Image from 'next/image'
+import Container from 'components/Container'
+import BlogLayout from 'layouts/BlogLayout'
+import { getPost, getPaths } from 'lib/mdx'
+import { GetStaticPaths, GetStaticProps } from 'next'
+import { getMDXComponent } from 'mdx-bundler/client'
+import { useMemo } from 'react'
 
 interface frontmatterProps {
-  title: string;
-  date: string;
-  description: string;
-  slug: string;
+  title: string
+  date: string
+  description: string
+  slug: string
 }
 
 function RoundedImage({ src, alt }: { src: string; alt: string }) {
@@ -25,12 +25,17 @@ function RoundedImage({ src, alt }: { src: string; alt: string }) {
         blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mOsyQYAAWkA6VFHKYUAAAAASUVORK5CYII="
       />
     </figure>
-  );
+  )
 }
 
-export default function Post({ code, frontmatter }:
-  { code: string, frontmatter: frontmatterProps }) {
-  const Component = useMemo(() => getMDXComponent(code), [code]);
+export default function Post({
+  code,
+  frontmatter,
+}: {
+  code: string
+  frontmatter: frontmatterProps
+}) {
+  const Component = useMemo(() => getMDXComponent(code), [code])
   return (
     <Container
       title={frontmatter.title}
@@ -41,21 +46,21 @@ export default function Post({ code, frontmatter }:
         <Component components={{ Image: RoundedImage }} />
       </BlogLayout>
     </Container>
-  );
+  )
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = getPaths();
+  const paths = getPaths()
   return {
     paths,
     fallback: false,
-  };
-};
+  }
+}
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { slug } = params as { slug: string };
-  const post = await getPost(slug);
+  const { slug } = params as { slug: string }
+  const post = await getPost(slug)
   return {
     props: { ...post },
-  };
-};
+  }
+}

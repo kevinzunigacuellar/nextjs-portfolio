@@ -1,8 +1,8 @@
-import Book from 'components/Book';
-import Container from 'components/Container';
-import Header from 'components/Header';
-import { ViewBoardsIcon } from '@heroicons/react/outline';
-import books from 'content/books.json';
+import Book from 'components/Book'
+import Container from 'components/Container'
+import Header from 'components/Header'
+import { ViewBoardsIcon } from '@heroicons/react/outline'
+import books from 'content/books.json'
 
 export default function Bookshelf() {
   return (
@@ -10,12 +10,9 @@ export default function Bookshelf() {
       <Header title="Bookshelf" icon={<ViewBoardsIcon />} />
       <ul className="grid grid-cols-1 justify-items-center gap-10 md:justify-items-start">
         {books.map(({ id, ...rest }) => (
-          <Book
-            key={id}
-            {...rest}
-          />
+          <Book key={id} {...rest} />
         ))}
       </ul>
     </Container>
-  );
+  )
 }

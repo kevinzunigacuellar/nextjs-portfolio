@@ -6,8 +6,8 @@ export default function Spotify({ className }: { className?: string }) {
         fill="#1ed660"
       />
     </svg>
-  );
+  )
 }
 Spotify.defaultProps = {
   className: '',
-};
+}

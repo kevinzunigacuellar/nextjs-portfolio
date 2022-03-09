@@ -1,9 +1,9 @@
-import { ThemeProvider } from 'next-themes';
-import { SessionProvider } from 'next-auth/react';
-import type { AppProps } from 'next/app';
-import AppLayout from 'layouts/AppLayout';
-import 'styles/globals.css';
-import 'styles/prism.css';
+import { ThemeProvider } from 'next-themes'
+import { SessionProvider } from 'next-auth/react'
+import type { AppProps } from 'next/app'
+import AppLayout from 'layouts/AppLayout'
+import 'styles/globals.css'
+import 'styles/prism.css'
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
         </AppLayout>
       </SessionProvider>
     </ThemeProvider>
-  );
+  )
 }
 
-export default MyApp;
+export default MyApp

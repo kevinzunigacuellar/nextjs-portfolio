@@ -12,5 +12,5 @@ export default function ReactLogo() {
         <circle cx={420.9} cy={296.5} r={45.7} />
       </g>
     </svg>
-  );
+  )
 }

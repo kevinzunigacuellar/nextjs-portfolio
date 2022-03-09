@@ -1,8 +1,8 @@
-const nextJest = require('next/jest');
+const nextJest = require('next/jest')
 
 const createJestConfig = nextJest({
   dir: './',
-});
+})
 
 const customJestConfig = {
   // Add more setup options before each test is run
@@ -11,8 +11,8 @@ const customJestConfig = {
   // then you need the below for alias' to work
   moduleDirectories: ['node_modules', '<rootDir>/'],
   testEnvironment: 'jest-environment-jsdom',
-};
+}
 
 // createJestConfig is exported this way to ensure that
 // next/jest can load the Next.js config which is async
-module.exports = createJestConfig(customJestConfig);
+module.exports = createJestConfig(customJestConfig)

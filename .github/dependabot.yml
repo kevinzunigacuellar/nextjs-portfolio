@@ -1,19 +1,19 @@
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/"
+  - package-ecosystem: 'npm'
+    directory: '/'
     target-branch: main
     schedule:
-      interval: "weekly"
-      time: "08:00"
-      timezone: "EST"
+      interval: 'weekly'
+      time: '08:00'
+      timezone: 'EST'
     open-pull-requests-limit: 15
     pull-request-branch-name:
-      separator: "-"
+      separator: '-'
     labels:
-      - "dependabot"
+      - 'dependabot'
     commit-message:
-      prefix: "(fix) update"
+      prefix: '(fix) update'
     ignore:
-      - dependency-name: "*"
-        update-types: ["version-update:semver-major"]
+      - dependency-name: '*'
+        update-types: ['version-update:semver-major']
