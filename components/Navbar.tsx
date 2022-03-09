@@ -112,7 +112,7 @@ function Navbar() {
           dark:hover:border-opacity-100 dark:hover:shadow-indigo-500/30 sm:m-0 sm:h-16 sm:w-16 sm:hover:shadow-md
           sm:hover:shadow-indigo-200"
         >
-          <LinkedIn className="ml-0.5 mb-0.5 h-8 w-8 p-0.5 fill-gray-400 duration-300 group-hover:scale-125 group-hover:fill-gray-500 dark:fill-gray-500 dark:group-hover:fill-gray-400" />
+          <LinkedIn className="ml-0.5 mb-0.5 h-8 w-8 fill-gray-400 duration-300 group-hover:scale-125 group-hover:fill-gray-500 dark:fill-gray-500 dark:group-hover:fill-gray-400" />
           <Tooltip text="LinkedIn" />
         </a>
       </nav>
