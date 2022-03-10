@@ -6,7 +6,7 @@
     "build": "next build",
     "postbuild": "next-sitemap",
     "start": "next start",
-    "test": "jest --watch",
+    "test": "jest",
     "lint": "next lint",
     "prepare": "husky install"
   },
