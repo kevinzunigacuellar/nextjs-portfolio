@@ -8,7 +8,7 @@ export default function Bookshelf() {
   return (
     <Container title="Bookshelf – Kevin Zuniga Cuellar">
       <Header title="Bookshelf" icon={<ViewBoardsIcon />} />
-      <ul className="grid grid-cols-1 justify-items-center gap-10 md:justify-items-start">
+      <ul className="grid grid-cols-1 justify-items-center gap-8 md:justify-items-start">
         {books.map(({ id, ...rest }) => (
           <Book key={id} {...rest} />
         ))}

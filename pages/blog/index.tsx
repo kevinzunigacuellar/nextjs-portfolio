@@ -16,7 +16,7 @@ function Blog({ posts }: { posts: [] }) {
   return (
     <Container title="Blog – Kevin Zuniga Cuellar">
       <Header title="Blog" icon={<PencilIcon />} />
-      <div className="grid grid-cols-1 gap-5">
+      <div className="grid grid-cols-1 gap-8">
         {posts.map((post: frontmatter) => (
           <Link href={`/blog/${post.slug}`} key={post.slug}>
             <a
