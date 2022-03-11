@@ -73,19 +73,19 @@ function CurrentlyPlaying({
     )
   }, [])
   return (
-    <div className="group flex items-center space-x-2">
+    <a
+      className="group flex items-center space-x-2 max-w-min"
+      href={songUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <div className="flex items-center space-x-0.5 rounded-md p-1 bg-white dark:bg-gray-800 shadow dark:border-gray-600">
         <span id="bar1" className="block h-5 w-1 rounded bg-blue-500 dark:bg-indigo-500" />
         <span id="bar2" className="block h-5 w-1 rounded bg-blue-500 dark:bg-indigo-500" />
         <span id="bar3" className="block h-5 w-1 rounded bg-blue-500 dark:bg-indigo-500" />
         <span id="bar4" className="block h-5 w-1 rounded bg-blue-500 dark:bg-indigo-500" />
       </div>
-      <a
-        className="flex flex-col text-sm text-gray-600 dark:text-gray-400 w-3/4"
-        href={songUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <div className="flex flex-col text-sm text-gray-600 dark:text-gray-400 w-full overflow-hidden max-w-min">
         <span
           className="font-semibold truncate text-gray-900 group-hover:text-blue-600 dark:text-white
         dark:group-hover:text-indigo-500"
@@ -93,8 +93,8 @@ function CurrentlyPlaying({
           {title}
         </span>
         <span className="text-xs truncate">{artist}</span>
-      </a>
-    </div>
+      </div>
+    </a>
   )
 }
 
