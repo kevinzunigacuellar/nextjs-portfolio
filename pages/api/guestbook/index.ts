@@ -16,6 +16,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         body: entry.body,
         created_by: entry.created_by,
         updated_at: entry.updated_at,
+        email: entry.email,
       }))
     )
   }
