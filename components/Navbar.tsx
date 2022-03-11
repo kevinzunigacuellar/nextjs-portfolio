@@ -87,7 +87,7 @@ function DarkmodeButton() {
 function Navbar() {
   return (
     <footer
-      className="fixed bottom-6 left-1/2 z-10 w-4/5 max-w-min sm:max-w-none -translate-x-1/2 rounded-3xl border border-gray-300
+      className="fixed bottom-6 left-1/2 z-10 w-5/6 max-w-min sm:max-w-none -translate-x-1/2 rounded-3xl border border-gray-300
     bg-white/60 px-2.5 py-1.5 shadow backdrop-blur-md dark:border-gray-700 dark:bg-gray-900/60
     dark:shadow-black/60 sm:w-auto sm:p-2.5"
     >
