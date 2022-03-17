@@ -1,14 +1,12 @@
 import { ReactNode } from 'react'
 
-export default function Skill({
-  icon,
-  name,
-  href,
-}: {
-  icon: ReactNode
+interface skillProps {
   name: string
+  icon: ReactNode
   href: string
-}) {
+}
+
+export default function Skill({ icon, name, href }: skillProps) {
   return (
     <a
       className="group flex items-center space-x-3 rounded-xl p-2 transition-colors hover:bg-gray-50

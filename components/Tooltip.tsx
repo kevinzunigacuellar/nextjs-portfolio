@@ -1,8 +1,4 @@
-interface TooltipProps {
-  text: string
-}
-
-function Tooltip({ text }: TooltipProps) {
+function Tooltip({ text }: { text: string }) {
   return (
     <span
       className="absolute bottom-20 w-auto min-w-max translate-y-10 scale-0 rounded-lg border border-gray-300

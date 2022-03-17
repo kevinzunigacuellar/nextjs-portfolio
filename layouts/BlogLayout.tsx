@@ -4,15 +4,13 @@ import { ReactNode } from 'react'
 import Link from 'next/link'
 import { ArrowSmLeftIcon } from '@heroicons/react/solid'
 
-export default function BlogLayout({
-  children,
-  title,
-  date,
-}: {
+interface BlogLayoutProps {
   children: ReactNode
   title: string
   date: string
-}) {
+}
+
+export default function BlogLayout({ children, title, date }: BlogLayoutProps) {
   return (
     <>
       <Link href="/blog">
