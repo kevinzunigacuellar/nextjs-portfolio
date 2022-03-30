@@ -14,9 +14,9 @@ export default function BlogLayout({ children, title, date }: BlogLayoutProps) {
   return (
     <>
       <Link href="/blog">
-        <a className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white inline-flex items-center space-x-1 py-0.5 rounded-full text-sm">
-          <ArrowSmLeftIcon className="h-4" />
-          <p>back to blog</p>
+        <a className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white inline-flex items-center py-0.5 rounded-full text-sm">
+          <ArrowSmLeftIcon className="h-4 pr-1" />
+          back to blog
         </a>
       </Link>
       <h1 className="text-4xl sm:text-5xl font-sans font-semibold py-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-pink-500">
