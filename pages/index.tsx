@@ -33,11 +33,11 @@ export default function Home() {
       </section>
       <section>
         <h2 className="mb-6 text-2xl font-semibold dark:text-white">Favorite Technologies</h2>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
+        <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
           {skills.map(({ id, ...rest }) => (
             <Skill key={id} {...rest} />
           ))}
-        </div>
+        </ul>
       </section>
     </Container>
   )
