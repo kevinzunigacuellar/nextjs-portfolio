@@ -29,7 +29,7 @@ export const getPost = async (slug: string) => {
   const mdxSource = getMdxSource(`${slug}.mdx`)
   const result = await bundleMDX({
     source: mdxSource,
-    xdmOptions(options) {
+    mdxOptions(options) {
       options.remarkPlugins = [...(options.remarkPlugins ?? [])]
       options.rehypePlugins = [
         ...(options.rehypePlugins ?? []),
