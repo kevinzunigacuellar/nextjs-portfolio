@@ -41,8 +41,8 @@ export default function BlogLayout({ children, title, date }: BlogLayoutProps) {
         </p>
       </div>
       <article
-        className="prose max-w-none prose-a:text-blue-500 prose-a:no-underline prose-pre:bg-white prose-pre:text-gray-700
-      dark:prose-invert dark:prose-a:text-indigo-500 dark:prose-pre:bg-gray-800 dark:prose-pre:text-gray-300"
+        className="prose max-w-none prose-a:text-blue-600 prose-a:no-underline prose-pre:bg-white prose-pre:text-gray-700
+      dark:prose-invert dark:prose-a:text-indigo-400 prose-headings:text-gray-700 dark:prose-headings:text-gray-200 dark:prose-pre:bg-gray-800 dark:prose-pre:text-gray-300"
       >
         {children}
       </article>

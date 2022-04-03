@@ -114,14 +114,21 @@ return {
 This is how our final code for getStaticPaths looks like let's dive into each line to see what happening:
 
 ```js
-export const getStaticPaths = async () => {
-  const files = fs.readdirSync('posts')
-  const paths = files.map((filename) => ({
-    params: { slug: filename.replace('.md', '') },
-  }))
+const getStaticProps = async ({
+  params: {
+    slug
+  }
+}) => {
+  const markdownWithMetadata = fs.readFileSync(path.join('posts',
+    `${slug}.md`), 'utf8')
+  const parsedMarkedown = matter(markdownWithMetadata)
+  const htmlContent = await markdownToHtml(parsedMarkedown
+    .content)
   return {
-    paths,
-    fallback: false,
+    props: {
+      contents: htmlContent,
+      data: parsedMarkedown.data,
+    },
   }
 }
 ```
@@ -154,10 +161,16 @@ export const getStaticProps = async (context) = {
 This is how our final code for getStaticProps looks like let's dive into each line to see what happening:
 
 ```js
-export const getStaticProps = async ({ params: { slug } }) => {
-  const markdownWithMetadata = fs.readFileSync(path.join('posts', slug + '.md'), 'utf8')
+export const getStaticProps = async ({
+  params: {
+    slug
+  }
+}) => {
+  const markdownWithMetadata = fs.readFileSync(path.join('posts',
+    slug + '.md'), 'utf8')
   const parsedMarkedown = matter(markdownWithMetadata)
-  const htmlContent = await markdownToHtml(parsedMarkedown.content)
+  const htmlContent = await markdownToHtml(parsedMarkedown
+    .content)
   return {
     props: {
       contents: htmlContent,
@@ -182,7 +195,8 @@ path.join('posts', slug + '.md')
 3. readFileSync reads a file and converts it to a string
 
 ```js
-const markdownWithMetadata = fs.readFileSync(path.join('posts', slug + '.md'), 'utf8')
+const markdownWithMetadata = fs.readFileSync(path.join('posts', slug +
+  '.md'), 'utf8')
 ```
 
 4. Use gray-matter to parse the metadata and the content for a markdown
@@ -200,12 +214,15 @@ const htmlContent = await markdownToHtml(parsedMarkedown.content)
 To make the code easier to follow I moved my markdownToHtml function into another js file but here is how it works behind the scenes.
 
 ```js
-import { unified } from 'unified'
+import {
+  unified
+} from 'unified'
 import remarkParse from 'remark-parse'
 import remarkHtml from 'remark-html'
 
 const markdownToHtml = async (markdown) => {
-  const processedContent = await unified().use(remarkParse).use(remarkHtml).process(markdown)
+  const processedContent = await unified().use(remarkParse).use(
+    remarkHtml).process(markdown)
   return processedContent.toString()
 }
 ```
