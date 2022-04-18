@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import profilePic from 'public/images/me.jpg'
+import profilePic from 'public/images/me.jpeg'
 import { ReactNode } from 'react'
 import Link from 'next/link'
 import { ArrowSmLeftIcon } from '@heroicons/react/solid'
@@ -24,13 +24,14 @@ export default function BlogLayout({ children, title, date }: BlogLayoutProps) {
       </h1>
       <div className="flex space-x-2 mb-16 items-center justify-center text-gray-600 dark:text-gray-400 text-sm sm:text-base">
         <Image
-          className="rounded-full w-full h-full"
+          className="rounded-full aspect-square"
           width={24}
           height={24}
           src={profilePic}
+          placeholder="blur"
           alt="Kevin Zuniga Cuellar"
         />
-        <p className="">
+        <p>
           <span className="mr-2">Kevin</span>
           &middot;
           <time className="ml-2" dateTime={date}>
