@@ -17,7 +17,7 @@
     "esbuild": "^0.14.38",
     "gray-matter": "^4.0.3",
     "mdx-bundler": "^9.0.0",
-    "motion": "^10.7.2",
+    "motion": "^10.8.1",
     "next": "12.1.5",
     "next-auth": "^4.3.3",
     "next-themes": "0.0.15",
