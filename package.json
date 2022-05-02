@@ -37,7 +37,7 @@
     "@types/react": "17.0.44",
     "@typescript-eslint/eslint-plugin": "^5.20.0",
     "@typescript-eslint/parser": "^5.20.0",
-    "autoprefixer": "^10.4.5",
+    "autoprefixer": "^10.4.6",
     "eslint": "^8.14.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-next": "12.1.5",
