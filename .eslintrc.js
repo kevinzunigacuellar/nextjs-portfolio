@@ -3,7 +3,6 @@ module.exports = {
     browser: true,
     es2021: true,
     node: true,
-    jest: true,
   },
   extends: ['plugin:react/recommended', 'airbnb', 'next/core-web-vitals', 'prettier'],
   parser: '@typescript-eslint/parser',
