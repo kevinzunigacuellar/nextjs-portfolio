@@ -1,6 +1,5 @@
 
-
-## Description
+## Welcome
 
 This is a personal website with a guestbook page.
 
@@ -15,4 +14,4 @@ This is a personal website with a guestbook page.
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
 
 
-> 🎉 My personal [website](https://kevinzunigacuellar.com) has been migrated from Next.js to Astro 🚀
+> 🎉 My [personal website](https://kevinzunigacuellar.com) has been migrated from Next.js to Astro 🚀
