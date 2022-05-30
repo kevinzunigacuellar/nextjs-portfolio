@@ -45,7 +45,7 @@
     "eslint-plugin-react": "^7.30.0",
     "eslint-plugin-react-hooks": "^4.5.0",
     "husky": "^7.0.4",
-    "next-sitemap": "^2.5.24",
+    "next-sitemap": "^2.5.28",
     "postcss": "^8.4.14",
     "prettier": "^2.6.2",
     "prisma": "^3.14.0",
