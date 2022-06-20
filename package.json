@@ -22,7 +22,7 @@
     "next-themes": "0.2.0",
     "react": "18.1.0",
     "react-dom": "18.1.0",
-    "react-hook-form": "^7.32.0",
+    "react-hook-form": "^7.32.2",
     "react-hot-toast": "^2.2.0",
     "rehype-code-titles": "^1.1.0",
     "rehype-prism-plus": "^1.4.0",
