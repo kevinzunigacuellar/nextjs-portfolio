@@ -13,5 +13,5 @@ This is a personal website with a guestbook page.
 - **Content**: [MDX](https://github.com/mdx-js/mdx) with [MDX-bundler](https://github.com/kentcdodds/mdx-bundler)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
 
-
+> **Note**
 > 🎉 My [personal website](https://kevinzunigacuellar.com) has been migrated from Next.js to Astro 🚀
