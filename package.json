@@ -17,7 +17,7 @@
     "gray-matter": "^4.0.3",
     "mdx-bundler": "^9.0.1",
     "motion": "^10.14.2",
-    "next": "12.2.5",
+    "next": "12.3.0",
     "next-auth": "^4.10.3",
     "next-themes": "0.2.1",
     "react": "18.2.0",
